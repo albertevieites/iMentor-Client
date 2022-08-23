@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: 'Poppins', sans-serif;
   min-height: 100vh;
   display: grid;
   place-items: center;
