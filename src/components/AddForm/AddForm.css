@@ -31,22 +31,22 @@
 .upload {
   width: 322px;
   height: 52px;
-  left: calc(50% - 322px / 2 + 0.5px);
-  top: calc(50% - 52px / 2 + 143px);
+  left: calc(50% - 322px * 0.5 + 0.5px);
+  top: calc(50% - 52px * 0.5 + 143px);
   background: #32c3ff;
   border: 1px solid #96d1df;
   border-radius: 5px;
 }
 
-input[type="file"]::file-selector-button {
+input.upload::file-selector-button {
   display: none;
 }
 
 .questionButton {
   width: 322px;
   height: 52px;
-  left: calc(50% - 322px / 2 + 0.5px);
-  top: calc(50% - 52px / 2 + 243px);
+  left: calc(50% - 322px * 0.5 + 0.5px);
+  top: calc(50% - 52px * 0.5 + 243px);
   background: #32c3ff;
   border: 1px solid #96d1df;
   border-radius: 5px;

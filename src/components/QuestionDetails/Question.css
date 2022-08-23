@@ -29,8 +29,8 @@
 .post {
   width: 76px;
   height: 44px;
-  left: calc(50% - 76px / 2 + 118.5px);
-  top: calc(50% - 44px / 2 + 107px);
+  left: calc(50% - 76px * 0.5 + 118.5px);
+  top: calc(50% - 44px * 0.5 + 107px);
 
   background: #32c3ff;
   border: 1px solid #ffffff;
