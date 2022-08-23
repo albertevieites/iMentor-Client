@@ -1,8 +1,5 @@
-# M3 - `README.md` Example
-
-<br>
 # iMentor: Find a mentor in the Ironhack community
-<br>
+
 
 ## Description
 
