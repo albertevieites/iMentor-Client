@@ -17,15 +17,15 @@ export default function ChatList() {
     const [chat, setChat] = useState({})
 
     const { id, otherId } = useParams()
-    
+
     // Send the token through the request "Authorization" Headers
     async function chats() {
     const chat = await chatService.getAll(`chats/${id}/${otherId}`)
-    return chat;    
+    return chat;
     }
     const getAllMessages = () => {
 
-        
+
         console.log("CHATS ", chats())
 
         if(chats().data)
@@ -42,7 +42,7 @@ export default function ChatList() {
                 chatService
                     .createChat(id, otherId)
                     .then(response => {
-                        setChat(response.data) 
+                        setChat(response.data)
                         setReceiver(response.data.user1._id === id ? response.data.user2 : response.data.user1)
                         setMessages(response.data.messages)
                     })
@@ -52,7 +52,7 @@ export default function ChatList() {
     // We set this effect will run only once, after the initial render
     // by setting the empty dependency array - []
 
-    
+
     useEffect(() => {
         /*setInterval(()=> {
         getAllMessages();
@@ -82,10 +82,10 @@ export default function ChatList() {
             addNewMessage();
         }
     }
-    
-    
+
+
     const addNewMessage = () => {
-        
+
         if(newMessage){
             chatService.createOne(`chats/newMessage/${chat._id}`, { content: newMessage, sender: id, receiver: otherId })
             .then(response => {
@@ -93,9 +93,9 @@ export default function ChatList() {
                 setNewMessage("")
             })
         }
-        
+
     }
-    
+
 
       return !messages.length ? (
             <div className="chat-page ">
@@ -117,7 +117,7 @@ export default function ChatList() {
                     <h2>{receiver.username}</h2>
             </div>
                 <div className="chat-box">
-                    
+
                     <div className="chat-display-box">
 
                         {messages.map((message) => {
@@ -146,7 +146,7 @@ export default function ChatList() {
                         },
                         )}
                         <div ref={divRef}></div>
-                        
+
                     </div>
                     <div className="message-box">
                         <textarea onChange={e => setNewMessage(e.target.value)} value={newMessage} onKeyDown={onEnterPress}></textarea>

@@ -17,7 +17,7 @@ const SignupForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        
+
         authService
             .signup(signupData)
             .then(res => {
@@ -27,7 +27,7 @@ const SignupForm = () => {
                 console.log(err)
                 setErrorMessage(err.response.data.message)
             })
-        
+
     }
 
     const handleInputChange = e => {
@@ -43,7 +43,7 @@ const SignupForm = () => {
 
             <div className="labelInput username">
                 <label className="username" htmlFor="input-username">Name</label>
-                <input 
+                <input
                     id="input-username"
                     type="text"
                     name="username"
@@ -55,7 +55,7 @@ const SignupForm = () => {
 
             <div className="labelInput email">
                 <label htmlFor="input-email">Email</label>
-                <input 
+                <input
                     type="text"
                     name="email"
                     value={email}
@@ -86,6 +86,6 @@ const SignupForm = () => {
         {errorMessage && <p>{errorMessage}</p>}
         </>
     )
-} 
+}
 
 export default SignupForm
