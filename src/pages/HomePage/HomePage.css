@@ -76,6 +76,8 @@
     background-color: #32C3FF;
     color: white;
     border: none;
+
+    cursor: pointer;
 }
 
 .loginBtn-Home {
@@ -100,5 +102,7 @@
     background-color: white;
     color: #32C3FF;
     border: none;
+
+    cursor: pointer;
 }
 
