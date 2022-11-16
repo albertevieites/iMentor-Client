@@ -43,7 +43,7 @@ export default function ChatList() {
 }, []);
 
   return (
-    
+
     <div className="general-container">
 
       <h1 className="page-title">Chats List</h1>
@@ -62,23 +62,23 @@ export default function ChatList() {
 
 
                 <div className="chat-message-preview">
-                  {(chat.messages[chat.messages.length - 1]?.sender == id) && 
-                  
+                  {(chat.messages[chat.messages.length - 1]?.sender == id) &&
+
                   <p className="message-preview-content">You: {chat.messages[chat.messages.length - 1]?.content}</p>
-                  
+
                   }
-                  
+
                   {(chat.messages[chat.messages.length - 1]?.sender == otherUser._id) &&
-                  
+
                   <p className="message-preview-content">{otherUser.name}: {chat.messages[chat.messages.length - 1]?.content}</p>
-                  
+
                   }
-                  {((Math.floor((new Date().getTime() - new Date(chat.messages[chat.messages.length - 1]?.createdAt).getTime()) / (1000 * 3600 * 24))) > 0 && chat.messages.length > 0) && 
+                  {((Math.floor((new Date().getTime() - new Date(chat.messages[chat.messages.length - 1]?.createdAt).getTime()) / (1000 * 3600 * 24))) > 0 && chat.messages.length > 0) &&
                   <p className="chat-message-time">{`${(Math.floor((new Date().getTime() - new Date(chat.messages[chat.messages.length - 1].createdAt).getTime()) / (1000 * 3600 * 24)))} days ago`}</p>}
-                  
-                  {!((Math.floor((new Date().getTime() - new Date(chat.messages[chat.messages.length - 1]?.createdAt).getTime()) / (1000 * 3600 * 24))) > 0) && chat.messages.length > 0 && 
+
+                  {!((Math.floor((new Date().getTime() - new Date(chat.messages[chat.messages.length - 1]?.createdAt).getTime()) / (1000 * 3600 * 24))) > 0) && chat.messages.length > 0 &&
                   <p className="chat-message-time">{`At ${new Date(chat.messages[chat.messages.length - 1]?.createdAt).getHours()}:${new Date(chat.messages[chat.messages.length - 1]?.createdAt).getMinutes()}`}</p>}
-                  
+
                 </div>
 
               </div>
@@ -87,11 +87,10 @@ export default function ChatList() {
 
 
           )
-        } 
+        }
         )}
 
       </div>
     </div>
   );
 }
-  

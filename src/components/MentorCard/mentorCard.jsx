@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import mentors from "../../services/mentor.service" 
+import mentors from "../../services/mentor.service"
 import { useState } from "react"
 import "./mentorCard.css"
 import "../../pages/MentorPage/mentor.css"
@@ -16,8 +16,8 @@ const Mentors = () => {
     const [filteredList, setfilteredList] = useState([]);
 
     const { user } = useContext(AuthContext)
-    
- 
+
+
     useEffect(()=>{
         mentors.getAllMentors()
         .then((mentors)=>{
@@ -25,9 +25,9 @@ const Mentors = () => {
             setMentorsList(mentors.data)
             setfilteredList(mentors.data)})
         .catch((err)=>console.log(err))
-        
+
     },[])
-    
+
 
     function filterMentors(e){
         if(!skillList.includes(e.target.id))
@@ -46,7 +46,7 @@ const Mentors = () => {
     return (
         <div className="padding-bottom">
             <div className='mentorCardContainer'>
-        <Skills function={filterMentors} filtering={skillList}></Skills> 
+        <Skills function={filterMentors} filtering={skillList}></Skills>
         {filteredList.map(({_id, profileImg, username, aboutMe})=>{
             const shortAboutMe = aboutMe.slice(0, 100)+'...'
         return(
@@ -57,7 +57,7 @@ const Mentors = () => {
                 <h2 className="mentor-name">{username}</h2>
                 <p className="mentor-body">{shortAboutMe}</p>
             </div>
-                
+
             <div className="mentorBtns">
                 <div className="mentorProfileBtn">
                     <Link to={`/profile/${_id}`}>
@@ -77,7 +77,7 @@ const Mentors = () => {
     </div>
     </div>
     )
-    
+
 }
 
 export default Mentors

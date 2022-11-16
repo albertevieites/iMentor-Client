@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import questions from "../../services/question.services" 
+import questions from "../../services/question.services"
 import { useState } from "react"
 import "../../components/QuestionCard/QuestionCard.css"
 import Skills from "../../components/Skills/skills"
@@ -18,7 +18,7 @@ const Question = () => {
             setQuestionList(reversedQuestions)
             setfilteredList(reversedQuestions)})
         .catch((err)=>console.log(err))
-        
+
     },[])
 
     function filterQuestions(e){
@@ -54,7 +54,7 @@ const Question = () => {
                 <p>{shortDescription}</p>
                 </div>
                 <Link to={`/questions/${_id}`} className="buttonContainer"><button className="whiteButton">Read more</button></Link>
-                
+
                 </div>
         )
     }) }

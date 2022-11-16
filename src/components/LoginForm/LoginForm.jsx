@@ -18,11 +18,11 @@ const Loginform = () => {
     const navigate = useNavigate()
 
     const { storeToken, authenticateUser, user } = useContext(AuthContext)
-   
+
 
     const handleSubmit = e => {
         e.preventDefault()
-        
+
         authService
             .login(loginData)
             .then(({ data }) => {
@@ -36,13 +36,13 @@ const Loginform = () => {
                 setLoginData({
                     password: '',
                     email: ''
-                }) 
+                })
                 console.log("this is the login error",err)})
     }
 
-    useEffect(()=>{ 
-       if(user && user.course) navigate('/mentors')
-       else if (user && !user.course) navigate(`/profile/${user._id}`)
+    useEffect(()=>{
+        if(user && user.course) navigate('/mentors')
+        else if (user && !user.course) navigate(`/profile/${user._id}`)
     },[user])
 
     const handleInputChange = e => {
@@ -52,17 +52,17 @@ const Loginform = () => {
 
     const { password, email } = loginData
 
-    return ( 
+    return (
         <>
         <form onSubmit={handleSubmit} className="loginForm">
-            
+
             <div className="labelInput login-email">
                 <label htmlFor="input-email">Email</label>
-                    <input 
+                    <input
                         type="text"
                         name="email"
                         value={email}
-                        onChange={handleInputChange} 
+                        onChange={handleInputChange}
                         required
                         />
             </div>
@@ -86,7 +86,7 @@ const Loginform = () => {
             </div>
 
         </form>
-        {error && 
+        {error &&
         <p>Incorrect login details</p>}
         {loading &&
         <Spinner></Spinner>}
