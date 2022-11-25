@@ -1,12 +1,14 @@
-import './AddForm.css'
 import { useState, useContext } from "react"
-import uploadService from "../../services/upload.service"
-import questionService from "../../services/question.services"
-import { AuthContext } from "../../context/auth.context"
-import Skills from "../../components/Skills/skills"
 import { useNavigate } from 'react-router-dom'
 
+import Skills from "../../components/Skills/skills"
 
+import { AuthContext } from "../../context/auth.context"
+
+import questionService from "../../services/question.services"
+import uploadService from "../../services/upload.service"
+
+import './AddForm.css'
 
 function AddForm() {
     const [imageUrl, setImageUrl] = useState(false)

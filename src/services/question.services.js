@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 class Questions {
 
@@ -31,11 +31,11 @@ class Questions {
     createQuestion = (question) => {
         return this.app.post("/questions", question)
     }
-    
+
     editQuestion = (question, id) => {
         return this.app.post(`/questions/${id}/edit`, question)
     }
-    
+
     deleteQuestion = (id) => {
         return this.app.post(`/questions/${id}/delete`)
     }
