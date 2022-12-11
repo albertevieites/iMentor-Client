@@ -1,8 +1,8 @@
+import { useState, useEffect } from "react"
+
 import skills from "../../services/skills.service"
-import './skills.css'
-import { useState } from "react"
-import { useEffect } from "react"
-import "../Skills/skills.css"
+
+import './Skills.css'
 
 const Skills = (props) => {
     const [skillsList, setSkillsList] = useState([]);

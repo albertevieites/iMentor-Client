@@ -4,15 +4,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import mentors from "../../services/mentor.service";
 
-import Skills from "../../components/Skills/skills";
+import Skills from "../Skills/Skills";
 
-import "./mentorCard.css";
-import "../../pages/MentorPage/mentor.css";
-import "../MentorCard/mentor.css";
+import "../../pages/Mentor/Mentor.css";
+import "./MentorCard.css";
 
 const skillList = [];
 
-const Mentors = () => {
+const MentorCard = () => {
   const [mentorsList, setMentorsList] = useState([]);
   const [filteredList, setfilteredList] = useState([]);
 
@@ -84,4 +83,4 @@ const Mentors = () => {
   );
 };
 
-export default Mentors;
+export default MentorCard;
