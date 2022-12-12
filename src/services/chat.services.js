@@ -3,7 +3,7 @@ import axios from "axios";
 class chatService {
   constructor() {
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_SERVER_URL,
+      baseURL: process.env.REACT_APP_API_URL,
     });
 
     // Automatically set JWT token in the headers for every request
