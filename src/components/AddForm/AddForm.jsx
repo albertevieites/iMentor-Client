@@ -6,7 +6,7 @@ import Skills from "../Skills/Skills";
 import { AuthContext } from "../../context/auth.context";
 
 import questionService from "../../services/question.services";
-import uploadService from "../../services/upload.service";
+import uploadService from "../../services/upload.services";
 
 import "./AddForm.css";
 

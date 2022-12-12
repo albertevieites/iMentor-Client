@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth.context";
-import User from "../../services/profile.service";
+import User from "../../services/profile.services";
 import questions from "../../services/question.services";
 
 import "./QuestionCardDetails.css";

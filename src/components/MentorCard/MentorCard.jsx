@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth.context";
-import mentors from "../../services/mentor.service";
+import mentors from "../../services/mentor.services";
 
 import Skills from "../Skills/Skills";
 
