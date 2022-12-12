@@ -47,7 +47,7 @@ const MentorCard = () => {
     <div className="padding-bottom">
       <div className="mentorCardContainer">
         <Skills function={filterMentors} filtering={skillList}></Skills>
-        {filteredList.map(({ _id, profileImg, username, aboutMe }) => {
+        {filteredList.map(( _id, profileImg, username, aboutMe ) => {
           const shortAboutMe = aboutMe.slice(0, 100) + "...";
           return (
             <div key={_id} className="mentorCard">
