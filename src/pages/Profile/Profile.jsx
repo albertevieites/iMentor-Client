@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth.context";
-import profile from "../../services/profile.service";
+import profile from "../../services/profile.services";
 
 import "./Profile.css";
 

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import socket from "../../components/Socket/Socket";
-import chatService from "../../services/chat.service";
+import chatService from "../../services/chat.services";
 
 import "./Chat.css";
 

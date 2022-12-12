@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth.context";
-import Profile from "../../services/profile.service";
-import uploadService from "../../services/upload.service";
+import Profile from "../../services/profile.services";
+import uploadService from "../../services/upload.services";
 
 import Skills from "../../components/Skills/Skills";
 

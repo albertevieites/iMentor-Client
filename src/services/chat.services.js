@@ -2,14 +2,13 @@ import axios from "axios";
 
 class chatService {
   constructor() {
-    
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_API_URL,
+      baseURL: process.env.REACT_APP_SERVER_URL,
     });
 
-            // Automatically set JWT token in the headers for every request
+    // Automatically set JWT token in the headers for every request
     this.api.interceptors.request.use((config) => {
-            // Retrieve the JWT token from the local storage
+      // Retrieve the JWT token from the local storage
       const storedToken = localStorage.getItem("authToken");
 
       if (storedToken) {
@@ -20,7 +19,7 @@ class chatService {
     });
   }
 
-  // POST /chat/projects 
+  // POST /chat/projects
   createOne = (resource, requestBody) => {
     return this.api.post(`/${resource}`, requestBody);
   };
@@ -48,14 +47,12 @@ class chatService {
   createChat = (user1, user2) => {
     return this.api.post(`/chats/create/${user1}/${user2}`);
   };
-
 }
 
 // Create one instance (object) of the service
 
-const chat = new chatService()
+const chat = new chatService();
 
 export default chat;
-
 
 // invoke with chatService.getOne("users", id)

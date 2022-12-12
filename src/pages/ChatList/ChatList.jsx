@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 
-import chatService from "../../services/chat.service";
+import chatService from "../../services/chat.services";
 
 import socket from "../../components/Socket/Socket";
 

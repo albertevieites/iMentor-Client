@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import authService from "../../services/auth.service";
+import authService from "../../services/auth.services";
 import { AuthContext } from "./../../context/auth.context";
 
 import "../../components/LoginForm/LoginForm.css";

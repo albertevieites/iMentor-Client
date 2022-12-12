@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import skills from "../../services/skills.service";
+import skills from "../../services/skills.services";
 
 import "./Skills.css";
 
