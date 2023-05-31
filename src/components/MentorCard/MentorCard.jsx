@@ -21,7 +21,6 @@ const MentorCard = () => {
     mentors
       .getAllMentors()
       .then((mentors) => {
-        console.log("mentors from card", mentors);
         setMentorsList(mentors.data);
         setfilteredList(mentors.data);
       })

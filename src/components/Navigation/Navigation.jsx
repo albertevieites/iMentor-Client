@@ -1,13 +1,15 @@
-import './Navigation.css'
-import { Navbar, Container, Nav } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
+
 import { AuthContext } from '../../context/auth.context'
+
+import { Navbar } from 'react-bootstrap'
+import './Navigation.css'
 
 
 const Navigation = () => {
 
-    const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
 if (user)
     return (

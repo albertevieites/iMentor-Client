@@ -16,7 +16,7 @@ const ChatList = () => {
 
   const getAllChats = () => {
     // Get the token from the localStorage
-    const storedToken = localStorage.getItem("authToken");
+    // const storedToken = localStorage.getItem("authToken");
 
     // Send the token through the request "Authorization" Headers
 
@@ -30,7 +30,7 @@ const ChatList = () => {
   // by setting the empty dependency array - []
   useEffect(() => {
     getAllChats();
-  }, []);
+  });
 
   useEffect(() => {
     socket.on("updateChat", (users) => {
@@ -38,7 +38,7 @@ const ChatList = () => {
         getAllChats();
       }
     });
-  }, []);
+  });
 
   return (
     <div className="general-container">
@@ -54,31 +54,31 @@ const ChatList = () => {
               onClick={() => navigate(`/chats/${id}/${otherUser._id}`)}
             >
               <div className="chat-img-container">
-                <img src={otherUser.profileImg} className="chat-img" />
+                <img src={otherUser.profileImg} className="chat-img" alt="imagen" />
               </div>
               <div className="chat-preview-content">
                 <h2 className="chat-name">{otherUser.name}</h2>
 
                 <div className="chat-message-preview">
-                  {chat.messages[chat.messages.length - 1]?.sender == id && (
+                  {chat.messages[chat.messages.length - 1]?.sender === id && (
                     <p className="message-preview-content">
                       You: {chat.messages[chat.messages.length - 1]?.content}
                     </p>
                   )}
 
-                  {chat.messages[chat.messages.length - 1]?.sender ==
+                  {chat.messages[chat.messages.length - 1]?.sender ===
                     otherUser._id && (
-                    <p className="message-preview-content">
-                      {otherUser.name}:{" "}
-                      {chat.messages[chat.messages.length - 1]?.content}
-                    </p>
-                  )}
+                      <p className="message-preview-content">
+                        {otherUser.name}:{" "}
+                        {chat.messages[chat.messages.length - 1]?.content}
+                      </p>
+                    )}
                   {Math.floor(
                     (new Date().getTime() -
                       new Date(
                         chat.messages[chat.messages.length - 1]?.createdAt
                       ).getTime()) /
-                      (1000 * 3600 * 24)
+                    (1000 * 3600 * 24)
                   ) > 0 &&
                     chat.messages.length > 0 && (
                       <p className="chat-message-time">{`${Math.floor(
@@ -86,7 +86,7 @@ const ChatList = () => {
                           new Date(
                             chat.messages[chat.messages.length - 1].createdAt
                           ).getTime()) /
-                          (1000 * 3600 * 24)
+                        (1000 * 3600 * 24)
                       )} days ago`}</p>
                     )}
 
@@ -96,7 +96,7 @@ const ChatList = () => {
                         new Date(
                           chat.messages[chat.messages.length - 1]?.createdAt
                         ).getTime()) /
-                        (1000 * 3600 * 24)
+                      (1000 * 3600 * 24)
                     ) > 0
                   ) &&
                     chat.messages.length > 0 && (

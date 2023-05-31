@@ -1,10 +1,15 @@
 import React, { createContext, useEffect, useState } from "react";
 import authService from "../services/auth.services";
+
 const AuthContext = createContext();
+
+
 function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+
+  // Handle token
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
   };
@@ -30,15 +35,18 @@ function AuthProviderWrapper(props) {
         .catch(() => logOutUser());
     }
   };
+  
   const logOutUser = () => {
     removeToken();
     setIsLoggedIn(false);
     setIsLoading(false);
     setUser(null);
   };
+
   useEffect(() => {
     authenticateUser();
-  }, []);
+  });
+
   return (
     <AuthContext.Provider
       value={{
