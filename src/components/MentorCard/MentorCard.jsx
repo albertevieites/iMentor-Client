@@ -46,31 +46,30 @@ const MentorCard = () => {
     <div className="padding-bottom">
       <div className="mentorCardContainer">
         <Skills function={filterMentors} filtering={skillList}></Skills>
-        {filteredList.map(( _id, profileImg, username, aboutMe ) => {
-          const shortAboutMe = aboutMe.slice(0, 100) + "...";
+        {filteredList.map((each) => {
           return (
-            <div key={_id} className="mentorCard">
+            <div key={each._id} className="mentorCard">
               <img
                 className="mentorImage"
-                src={profileImg}
-                alt={username}
+                src={each.profileImg}
+                alt={each.username}
               ></img>
 
               <div className="profile-main">
-                <h2 className="mentor-name">{username}</h2>
-                <p className="mentor-body">{shortAboutMe}</p>
+                <h2 className="mentor-name">{each.username}</h2>
+                <p className="mentor-body">{each.aboutMe}</p>
               </div>
 
               <div className="mentorBtns">
                 <div className="mentorProfileBtn">
-                  <Link to={`/profile/${_id}`}>
+                  <Link to={`/profile/${each._id}`}>
                     <button>Profile</button>
                   </Link>
                 </div>
               </div>
 
               <div className="mentorContactBtn">
-                <Link to={`/chats/${user._id}/${_id}`}>
+                <Link to={`/chats/${user._id}/${each._id}`}>
                   <button>Contact</button>
                 </Link>
               </div>

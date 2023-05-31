@@ -35,7 +35,6 @@ function AuthProviderWrapper(props) {
         .catch(() => logOutUser());
     }
   };
-  
   const logOutUser = () => {
     removeToken();
     setIsLoggedIn(false);
