@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import SignupForm from "../../components/SignupForm/SignupForm";
 
+import Logo from "../../assets/logo/imentor.svg"
+
 import "./Signup.css";
 
 const Signup = () => {
@@ -10,7 +12,7 @@ const Signup = () => {
       <div className="logo-signup">
         <Link to="/">
           <img
-            src="https://res.cloudinary.com/dz2hyfmhw/image/upload/v1654165990/iMentor/logo_wxclwz.png"
+            src={Logo}
             alt="Logo"
           />
         </Link>
