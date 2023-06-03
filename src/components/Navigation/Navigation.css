@@ -1,12 +1,7 @@
-:root {
-    height: 100%;
-}
 .navbar {
     margin-bottom: 40px;
 }
-:root {
-    height: 100%;
-}
+
 .navbar {
     display: flex;
     flex-direction: row;

@@ -1,15 +1,13 @@
-.signupForm {
-    width: 82%;
-}
+.signup--form {
+    display: grid;
+    gap: 1.5rem;
 
-.labelInput {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%;
+    padding: 0 2rem;
 }
 
 .labelInput > label {
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.7rem;
 }
 
 .username {
@@ -17,99 +15,75 @@
     flex-direction: column;
     justify-content: center;
 
-    font-family: 'Poppins';
     font-weight: 400;
     font-size: 1rem;
 
-    color: black;
+    color: var(--black-color);
 }
 
 .username > input {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     padding: 1rem;
 
     font-size: 1.1rem;
 
-    background-color: white;
-    border: 0.1rem solid #32C3FF;
+    background-color: var(--var(--white-color)-color);
+    border: 0.1rem solid var(--primary-color);
     border-radius: 0.32rem;
 }
 
 .email {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    font-family: 'Poppins';
-    font-weight: 400;
     font-size: 1rem;
+    font-weight: 400;
 
-    color: black;
+    color: var(--black-color);
 }
 
 .email > input {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     padding: 1rem;
 
     font-size: 1.1rem;
 
-    background-color: white;
-    border: 0.1rem solid #32C3FF;
+    background-color: var(--white-color);
+    border: 0.1rem solid var(--primary-color);
     border-radius: 0.313rem;
 }
 
 .password {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    font-family: 'Poppins';
     font-weight: 400;
     font-size: 1rem;
 
-    color: black;
+    color: var(--black-color);
 }
 
 .password > input {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     padding: 1rem;
 
     font-size: 1.1rem;
 
-    background-color: white;
-    border: 0.1rem solid #32C3FF;
+    background-color: var(--white-color);
+    border: 0.1rem solid var(--primary-color);
     border-radius: 0.32rem;
 }
 
 .signupBtn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    margin-top: 3rem;
     padding: 0.9rem 1.1rem;
-    margin-top: 4.5rem;
-
-    background-color: #32C3FF;
+    background-color: var(--primary-color);
     border: none;
     border-radius: 0.32rem;
 }
 
-.signupBtn > button {
+.signupBtn button {
     font-weight: 600;
     font-size: 1.2rem;
     letter-spacing: 0.05rem;
+    color: var(--white-color);
 
-    background-color: #32C3FF;
-    color: white;
+    display: block;
+
+    margin: 0 auto;
+    background-color: var(--primary-color);
+    color: var(--white-color);
     border: none;
 
     cursor: pointer;
