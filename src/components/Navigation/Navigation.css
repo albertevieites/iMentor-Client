@@ -1,29 +1,12 @@
-.navbar {
-    margin-bottom: 40px;
-}
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    padding-top: 2.3rem;
-    padding-bottom: 1.5rem;
-}
-h5 {
-    position: absolute;
-    top: 0;
-    padding-top: 2rem;
+nav p {
     width: 100%;
-    font-size: 0.938rem;
-    font-weight: 600;
+    padding: 2.22rem 0;
+
+    font-weight: 700;
     text-align: center;
-    color: black;
 }
 
-.img {
-    position: absolute;
-    width: 30px;
-    height: 20px;
-    left: 340px;
-    top: 32px;
+nav a {
+    text-decoration: none;
+    color: var(--black-color);
 }
