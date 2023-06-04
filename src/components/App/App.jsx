@@ -1,7 +1,6 @@
 import AppRoutes from "../../routes/AppRoutes";
 
-import Footer from "../Footer/Footer";
-import Navigation from "../Navigation/Navigation";
+import Layout from "../Layout/Layout";
 
 import "./App.css";
 import "./variables.css";
@@ -9,9 +8,9 @@ import "./variables.css";
 const App = () => {
   return (
     <>
-      <Navigation />
-      <AppRoutes />
-      <Footer />
+      <Layout>
+        <AppRoutes />
+      </Layout>
     </>
   );
 };

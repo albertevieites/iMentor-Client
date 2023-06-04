@@ -1,14 +1,14 @@
-.signupContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+.signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
-    height: 100dvh;
-    padding-top: 15dvh;
-    padding-bottom: 4rem;
+  height: 100dvh;
+  padding-top: 15dvh;
+  padding-bottom: 4rem;
 }
 
-.logo-signup img {
-    width: 9rem;
+.signup img {
+  width: 9rem;
 }

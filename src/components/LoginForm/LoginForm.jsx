@@ -6,7 +6,6 @@ import { AuthContext } from "./../../context/auth.context";
 
 import "../../components/LoginForm/LoginForm.css";
 
-import Spinner from "../Spinner/Spinner";
 
 const Loginform = () => {
   const [loginData, setLoginData] = useState({
@@ -84,7 +83,7 @@ const Loginform = () => {
         </div>
       </form>
       {error && <p>Incorrect login details</p>}
-      {loading && <Spinner></Spinner>}
+      {/* {loading && <Spinner></Spinner>} */}
     </>
   );
 };

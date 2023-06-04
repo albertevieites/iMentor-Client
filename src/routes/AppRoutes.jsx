@@ -7,13 +7,13 @@ import EditProfilePage from "../pages/EditProfile/EditProfile";
 import EditQuestionPage from "../pages/EditQuestion/EditQuestion";
 import Home from "../pages/Home/Home";
 import LoginPage from "../pages/Login/Login";
-import Mentor from "../pages/Mentor/Mentor";
+import Mentor from "../pages/Mentors/Mentors";
+import Profile from "../pages/Profile/Profile";
+import Question from "../pages/Question/Question";
+import QuestionDetails from "../pages/QuestionDetails/QuestionDetails";
+import Signup from "../pages/Signup/Signup";
 import NotLoggedInRoute from "./NotLoggedInRoute";
 import PrivateRoute from "./PrivateRoute";
-import Profile from "../pages/Profile/Profile";
-import QuestionDetails from "../pages/QuestionDetails/QuestionDetails";
-import Question from "../pages/Question/Question";
-import Signup from "../pages/Signup/Signup";
 
 const AppRoutes = () => {
   return (

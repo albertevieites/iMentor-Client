@@ -1,4 +1,4 @@
-.loginContainer {
+.login {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,6 +9,6 @@
     padding-bottom: 4rem;
 }
 
-.logo-login img {
+.login img {
     width: 9rem;
 }

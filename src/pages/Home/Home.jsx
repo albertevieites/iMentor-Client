@@ -6,20 +6,20 @@ import "./Home.css";
 
 const IndexPage = () => {
   return (
-    <div className="homeContainer">
+    <div className="home">
       <img
         src={Logo}
         alt="Logo"
       />
 
-      <div className="homeBtns">
-        <div className="signupBtn-Home">
+      <div className="home--btns">
+        <div className="home--signup__btn">
           <Link to="/signup">
             <button>Sign Up</button>
           </Link>
         </div>
 
-        <div className="loginBtn-Home">
+        <div className="home--login__btn">
           <Link to="/login">
             <button>Login</button>
           </Link>

@@ -1,30 +1,13 @@
-.mentorCardContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding-bottom: 5rem;
-}
-
-.mentorCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.2rem;
-
-  width: 82%;
-
+.mentor--card {
+  width: 90dvw;
   padding: 1.2em 1.3em;
-  margin-top: 8rem;
-
-  background-color: white;
-  border: 0.125rem solid #32C3FF;
+  border: 0.125rem solid var(--primary-color);
   border-radius: 0.64rem;
 
   text-align: center;
 }
 
-.mentorCard img {
+.mentor--card img {
   position: relative;
   border-radius: 50%;
   width: 5rem;
@@ -34,40 +17,38 @@
 
   margin-bottom: -4rem;
 
-  border: 0.2rem solid white;
+  border: 0.2rem solid var(--white-color);
 }
 
-.profile-main {
+.mentor--card__content {
   font-size: 0.938rem;
-
-  color: #212552;
 }
 
-.profile-main h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+.mentor--card__content {
+  & h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
 
-  padding-bottom: 0.5rem;
+    padding-bottom: .3rem;
+  }
+
+  & p {
+    font-size: 0.94rem;
+
+    padding-bottom: 1.5rem;
+  }
 }
 
-.mentor-name {
-  font-size: 1.25rem;
-}
-
-.mentor-body {
-  font-size: 0.94rem;
-}
-
-.mentorBtns {
+.mentor--card__btns {
   display: flex;
   justify-content: center;
-  gap: 1.7rem;
+  gap: 1rem;
 }
 
-.mentorProfileBtn * button {
-  background-color: white;
-  color: #32C3FF;
-  border: 0.125rem solid #32C3FF;
+.mentor--card__btns--profile button {
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  border: 0.125rem solid var(--primary-color);
   border-radius: 0.32rem;
 
   padding: 0.6rem 2rem;
@@ -75,12 +56,12 @@
   font-size: 1rem;
 }
 
-.mentorContactBtn * button {
-  background-color: #32C3FF;
-  color: white;
+.mentor--card__btns--contact button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
   border-radius: 0.32rem;
-  padding: 0.7rem 2.1rem;
-  border: none;
+  padding: 0.6rem 2rem;
+  border: 0.125rem solid var(--primary-color);
 
   font-size: 1rem;
 }

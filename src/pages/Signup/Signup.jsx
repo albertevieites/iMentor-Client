@@ -8,8 +8,8 @@ import "./Signup.css";
 
 const Signup = () => {
   return (
-    <div className="signupContainer">
-      <div className="logo-signup">
+    <div className="signup">
+      <div className="signup--logo">
         <Link to="/">
           <img
             src={Logo}

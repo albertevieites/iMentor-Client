@@ -1,4 +1,4 @@
-.homeContainer{
+.home {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -10,11 +10,11 @@
     padding-bottom: 4rem;
 }
 
-.homeContainer img {
+.home img {
     width: 17rem;
 }
 
-.homeBtns {
+.home--btns{
     display: grid;
     justify-items: center;
     gap: 1.5rem;
@@ -22,7 +22,7 @@
     width: 100%;
 }
 
-.signupBtn-Home {
+.home--signup__btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +34,7 @@
     border-radius: 0.32rem;
 }
 
-.signupBtn-Home * button {
+.home--signup__btn button {
     font-weight: 600;
     font-size: 1.2rem;
     letter-spacing: 0.05rem;
@@ -46,7 +46,7 @@
     cursor: pointer;
 }
 
-.loginBtn-Home {
+.home--login__btn {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -59,7 +59,7 @@
     border-radius: 0.32rem;
 }
 
-.loginBtn-Home * button {
+.home--login__btn button {
     font-weight: 600;
     font-size: 1.2rem;
     letter-spacing: 0.05rem;
