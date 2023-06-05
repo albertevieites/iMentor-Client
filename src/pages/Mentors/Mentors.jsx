@@ -39,7 +39,6 @@ const Mentors = () => {
     console.log(newList);
   }
 
-  console.log(filteredList)
   return (
     <div className="mentors">
       <Skills function={filterMentors} filtering={skillList}></Skills>

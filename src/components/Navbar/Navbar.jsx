@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth.context";
 
-import "./Navigation.css";
+import "./Navbar.css";
 
-const Navigation = () => {
+const Navbar = () => {
   const { user } = useContext(AuthContext);
 
   if (user)
@@ -18,4 +18,4 @@ const Navigation = () => {
     );
 };
 
-export default Navigation;
+export default Navbar;

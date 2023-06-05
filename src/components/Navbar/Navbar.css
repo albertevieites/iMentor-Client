@@ -1,0 +1,23 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    background-color: var(--white-color);
+
+    z-index: 1;
+}
+
+nav p {
+    width: 100%;
+    padding: 1.5rem 0;
+
+    font-weight: 700;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--black-color);
+}
