@@ -1,4 +1,6 @@
 .skills {
+  position: relative;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -39,7 +41,7 @@
 
 .showMore {
   position: absolute;
-  top: 19%;
+  bottom: -2rem;
 
   display: flex;
   flex-direction: column;
@@ -61,7 +63,7 @@
 
 .showLess {
   position: absolute;
-  top: 49%;
+  bottom: -2rem;
 
   display: flex;
   flex-direction: column;
