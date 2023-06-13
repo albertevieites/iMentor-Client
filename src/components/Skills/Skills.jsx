@@ -61,7 +61,7 @@ const Skills = (props) => {
       })}
       {skillsList.length === 5 ? (
         <div onClick={showAll} className="showMore">
-          <p>Expand skills</p>
+          <p>Show more skills</p>
         </div>
       ) : (
         <div onClick={showLess} className="showLess">

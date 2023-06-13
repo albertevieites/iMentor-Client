@@ -2,20 +2,22 @@
   position: relative;
 
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: .7rem;
 
-  width: 100%;
+  max-width: 1440px;
   margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
 }
 
 .skills__chips--noselected {
-  margin: .3rem 0.2rem;
-  padding: 0.2rem 0.4rem;
+  padding: 5px 15px;
   border: 0.125rem solid var(--grey-color);
-  border-radius: 1.25rem;
+  border-radius: 20px;
   background-color: var(--white-color);
 
   font-size: 0.875rem;
@@ -29,10 +31,9 @@
 }
 
 .skills__chips--selected {
-  margin: .3rem .2rem;
-  padding: 0.2rem 0.4rem;
-  border: 0.125rem solid var(--grey-color);
-  border-radius: 1.25rem;
+  padding: 5px 15px;
+  border: 0.125rem solid var(--primary-color);
+  border-radius: 20px;
   background-color: var(--primary-color);
 
   font-size: 0.875rem;
@@ -47,17 +48,17 @@
   flex-direction: column;
   justify-content: center;
 
-  padding: .3rem;
-  border-radius: 3px;
-  background-color: var(--secondary-color);
+  padding: 0.1rem;
+  border-bottom: 0.12rem solid var(--secondary-color);
 
-  color: var(--white-color);
+  font-weight: 600;
+  color: var(--secondary-color);
   text-align: center;
 }
 
 .showMore {
   & p {
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -69,16 +70,16 @@
   flex-direction: column;
   justify-content: center;
 
-  padding: .3rem;
-  border-radius: 3px;
-  background-color: var(--secondary-color);
+  padding: 0.1rem;
+  border-bottom: 0.12rem solid var(--secondary-color);
 
-  color: var(--white-color);
+  font-weight: 600;
+  color: var(--secondary-color);
   text-align: center;
 }
 
 .showLess {
   & p {
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
 }
