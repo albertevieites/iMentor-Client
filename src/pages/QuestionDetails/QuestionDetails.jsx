@@ -5,7 +5,7 @@ import "../QuestionDetails/QuestionDetails.css";
 const QuestionDetails = () => {
   return (
     <>
-      <Question></Question>
+      <Question />
     </>
   );
 };
