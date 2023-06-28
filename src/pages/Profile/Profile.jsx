@@ -7,7 +7,8 @@ import profile from "../../services/profile.services";
 import "./Profile.css";
 
 const ProfilePage = () => {
-  const { user, logOutUser } = useContext(AuthContext);
+  const { user, logOutUser } =
+    useContext(AuthContext);
   const [userProfile, setuserProfile] = useState([]);
   const profileId = useParams();
 

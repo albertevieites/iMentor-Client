@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import authService from "../../services/auth.services";
 import { AuthContext } from "./../../context/auth.context";
 
-import "../../components/LoginForm/LoginForm.css";
+import Loader from "../Loader/Loader";
 
+import "../../components/LoginForm/LoginForm.css";
 
 const Loginform = () => {
   const [loginData, setLoginData] = useState({
@@ -83,7 +84,7 @@ const Loginform = () => {
         </div>
       </form>
       {error && <p>Incorrect login details</p>}
-      {/* {loading && <Spinner></Spinner>} */}
+      {loading && <Loader />}
     </>
   );
 };

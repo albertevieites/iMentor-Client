@@ -39,13 +39,15 @@ const Mentors = () => {
     console.log(newList);
   }
 
+  console.log(filteredList);
+
   return (
     <div className="mentors">
       <Skills function={filterMentors} filtering={skillList}></Skills>
       <div className="mentors__grid">
         {filteredList.map(each => (
           <MentorCard
-            key={each._id}
+            userId={each._id}
             profileImg={each.profileImg}
             username={each.username}
             about={each.aboutMe}

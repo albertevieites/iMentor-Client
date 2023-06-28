@@ -7,10 +7,11 @@ import "./MentorCard.css";
 
 const MentorCard = (props) => {
   const { user } = useContext(AuthContext);
-  console.log(props)
+  console.log(user)
+  console.log(props.userId)
 
   return (
-      <div key={props.key} className="mentor--card">
+      <div key={props.userId} className="mentor--card">
         <img src={props.profileImg} alt={props.username}></img>
 
         <div className="mentor--card__content">
@@ -20,12 +21,12 @@ const MentorCard = (props) => {
 
         <div className="mentor--card__btns">
           <div className="mentor--card__btns--profile">
-            <Link to={`/profile/${props.key}`}>
+            <Link to={`/profile/${props.userId}`}>
               <button>Profile</button>
             </Link>
           </div>
           <div className="mentor--card__btns--contact">
-            <Link to={`/chats/${user._id}/${props.key}`}>
+            <Link to={`/chats/${user._id}/${props.userId}`}>
               <button>Contact</button>
             </Link>
           </div>
