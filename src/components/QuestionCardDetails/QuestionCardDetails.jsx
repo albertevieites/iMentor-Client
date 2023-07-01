@@ -7,7 +7,7 @@ import questions from "../../services/question.services";
 
 import "./QuestionCardDetails.css";
 
-const Question = () => {
+const QuestionDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   const [question, setQuestion] = useState(null);
@@ -51,51 +51,60 @@ const Question = () => {
     }
   };
 
+  // Function to delete question from database
   const deleteQuestion = () => {
     questions.deleteQuestion(question._id);
     navigate("/questions");
   };
 
+  // RENDERING COMPONENT
   return (
-    <div className="questionContainer">
-      <div>
+    <div className="question--details">
+      {/* Question buttons */}
+      <div className="question--details__edit">
         {databaseUser?._id === question?.owner._id && (
           <>
             <Link to={`/question/${question?._id}/edit`}>
-              <button>Edit</button>
+              <button className="question--details__btns--edit">Edit</button>
             </Link>
-            <button onClick={deleteQuestion}>Delete</button>
+            <button
+              className="question--details__btns--delete"
+              onClick={deleteQuestion}
+            >
+              Delete
+            </button>
           </>
         )}
       </div>
 
-      <div className="questionContent">
-        <div className="questionTop">
-          <h3 className="title">{question?.title}</h3>
-          <p className="description">{question?.description}</p>
-          <img src={question?.imageUrl} alt=""></img>
+      {/* Question container */}
+      <div className="question--details__container">
+        {/* Question content */}
+        <div className="question--details__container--top">
+          <h3>{question?.title}</h3>
+          <p>{question?.description}</p>
+          <img src={question?.imageUrl} alt="" />
         </div>
 
-        <div className="postComment">
+        {/* Question add comments */}
+        <div className="question--details__addcomment">
           <form action="submit" onSubmit={handleSubmit}>
             <input
-              className="comment-area"
+              className="question--details__addcomment--textarea"
               type="text"
               name="comment"
               onChange={handleInput}
             />
-            <button className="post" type="submit">
-              Post
-            </button>
+            <button type="submit">Post</button>
           </form>
         </div>
 
-        <div className="showComment">
+        {/* Added questions */}
+        <div className="question--details__addedcomments">
           {question?.Comments.map((comment) => {
             return (
-              <div key={comment._id} className="commentBox">
+              <div key={comment._id} className="question--details__addedcomments--container">
                 <img
-                  className="profileImg"
                   src={comment.user.profileImg}
                   alt="profile pic"
                 />
@@ -110,4 +119,4 @@ const Question = () => {
   );
 };
 
-export default Question;
+export default QuestionDetails;

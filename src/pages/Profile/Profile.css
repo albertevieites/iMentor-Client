@@ -1,73 +1,137 @@
-.menteerProfile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* MENTOR PROFILE */
+.mentor--profile {
+  margin-top: 7rem;
 }
 
-.courseName {
+.mentor--profile__container {
+  width: 90%;
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.mentor--profile__container span {
+  display: block;
+
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  padding: 4px 16px;
+  border-radius: 20px;
+  background-color: var(--secondary-color);
+
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--white-color);
+}
+
+.mentor--profile__container--course {
   padding-bottom: 1rem;
+
+  text-transform: uppercase;
 }
 
-.courseName * button {
-  padding: 0.5rem 1rem;
+.mentor--profile__container--name {
+  font-size: 1.3rem;
 
-  background-color: #32C3FF;
-  color: white;
+  padding-bottom: 0.3rem;
+}
 
-  border: none;
+.mentor--profile__container--email {
+  font-size: 0.9rem;
+  font-style: italic;
+
+  padding-bottom: 0.7rem;
+}
+
+.mentor--profile__container--occupation {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.mentor--profile__container--company {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.mentor--profile img {
+  width: 5rem;
+}
+
+.mentor--profile__container--about {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.mentor--profile__btns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+.mentor--profile__btns--edit {
+  width: 6rem;
+  padding: 0.5rem 0;
+  border: 0.125rem solid var(--primary-color);
   border-radius: 0.32rem;
+  background-color: var(--primary-color);
 
-  font-size: 1rem;
+  color: var(--white-color);
 }
 
-.menteerBox {
+.mentor--profile__btns--logout {
+  width: 6rem;
+  padding: 0.5rem 0;
+  border: 0.125rem solid var(--primary-color);
+  border-radius: 0.32rem;
+  background-color: var(--white-color);
+
+  color: var(--primary-color);
+}
+
+.mentor--profile__link {
+  text-decoration: none;
+}
+
+.mentor--profile__question {
+  width: 90%;
+}
+
+.mentor--profile__question h2 {
+  padding: 1rem 0;
+
+  font-size: 1.2rem;
+  color: var(--black-color);
+  text-align: left;
+}
+
+pre {
+  text-align: left;
+}
+
+code {
+  color: var(--grey-color);
+}
+
+/* ---------------------------- */
+/* ---------------------------- */
+/* ---------------------------- */
+
+/* MENTEE PROFILE */
+.mentee--profile {
   display: flex;
   justify-content: center;
 
   width: 100%;
-
-  padding: 10rem 0;
+  margin-top: 7rem;
 }
 
-.menteerProfile img {
-  width: 25%;
-
-  border-radius: 50%;
-  margin-bottom: 1.25rem;
-}
-
-.menteerProfile h1 {
-  font-size: 1.5rem;
-  padding-bottom: 1.25rem;
-
-  color: #212552;
-}
-
-.menteerProfile h2 {
-  font-size: 1.55rem;
-  font-weight: 800;
-}
-
-.menteerProfile > p {
-  font-size: 0.75rem;
-  font-weight: 200;
-
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-
-  color: #5d5d5d;
-}
-
-.aboutMe {
-  width: 80%;
-}
-
-.aboutMe p {
-  letter-spacing: 0.01rem;
-  line-height: 1.5rem;
-}
-
-.menteerContainer {
+/* Container */
+.mentee--profile__container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,65 +139,75 @@
   width: 82%;
 }
 
-.courseName {
-  padding-bottom: 1.25rem;
-}
+/* Course */
+.mentee--profile__course {
+  padding-bottom: 0.7rem;
 
-.courseName > span {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 600;
-
-  letter-spacing: 0.35rem;
-
-  color: #212552;
+  text-transform: uppercase;
 }
 
-.usernameBox {
+/* Avatar */
+.mentee--profile img {
+  width: 5rem;
+  border-radius: 50%;
+}
+
+/* Mentee label */
+.mentee--profile__container span {
+  display: block;
+
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  padding: 4px 16px;
+  border-radius: 20px;
+  background-color: var(--mentee-color);
+
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--white-color);
+}
+
+/* Name */
+.mentee--profile__container--name {
   padding: 1rem 0;
 }
 
-.menteerContainer > h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+/* About */
+.mentee--profile__container--about {
+  width: 80%;
 
-  letter-spacing: 0.1rem;
-
-  padding-bottom: 0.5rem;
-
-  color: #212552;
+  letter-spacing: .01rem;
 }
 
-.menteerContainer img {
-  width: 5rem;
+/* Buttons */
+.mentee--profile__btns {
+  display: flex;
+  gap: 1rem;
+
+  margin-top: 2rem;
 }
 
-.menteerContainer > p {
-  font-size: 0.94rem;
-  font-weight: 400;
-
-  letter-spacing: 0.1rem;
-
-  padding: 0.6rem 0;
-
-  color: rgba(37, 37, 37, 0.7);
-}
-
-.aboutMe {
-  font-size: 1rem;
-
-  letter-spacing: 0.04rem;
-  line-height: 1.5rem;
-}
-
-.nav-logoutbtn {
-  padding: 0.5rem 1rem;
-
-  background-color: white;
-  color: #32C3FF;
-
-  border: 0.125rem solid #32C3FF;
-
+.mentee--profile__btns--edit {
+  width: 6rem;
+  padding: 0.5rem 0;
+  border: 0.125rem solid var(--primary-color);
   border-radius: 0.32rem;
+  background-color: var(--primary-color);
 
-  font-size: 1rem;
+  color: var(--white-color);
+}
+
+.mentee--profile__btns--logout {
+  width: 6rem;
+  padding: 0.5rem 0;
+  border: 0.125rem solid #32c3ff;
+  border-radius: 0.32rem;
+  background-color: white;
+
+  color: #32c3ff;
 }

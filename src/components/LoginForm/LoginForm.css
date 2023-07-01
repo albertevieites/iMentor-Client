@@ -1,72 +1,69 @@
 .loginForm {
-    display: grid;
-    gap: 1.5rem;
+  display: grid;
+  gap: 1.5rem;
 
-    width: 82%;
+  width: 82%;
 }
 
 .labelInput {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .labelInput > label {
-    padding-bottom: 0.7rem;
+  padding-bottom: 0.7rem;
 }
 
 .login-email {
-    font-weight: 400;
-    font-size: 1rem;
+  font-weight: 400;
+  font-size: 1rem;
 
-    color: var(--black-color);
+  color: var(--black-color);
 }
 
 .login-email > input {
-    padding: 1rem;
+  padding: 1rem;
 
-    background-color: var(--white-color);
-    border: 0.1rem solid var(--primary-color);
-    border-radius: 0.313rem;
+  background-color: var(--white-color);
+  border: 0.1rem solid var(--primary-color);
+  border-radius: 0.313rem;
 }
 
 .login-password {
-    font-weight: 400;
-    font-size: 1rem;
+  font-weight: 400;
+  font-size: 1rem;
 
-    color: var(--black-color);
+  color: var(--black-color);
 }
 
 .login-password > input {
-    padding: 1rem;
+  padding: 1rem;
 
-    background-color: var(--white-color);
-    border: 0.1rem solid var(--primary-color);
-    border-radius: 0.32rem;
+  background-color: var(--white-color);
+  border: 0.1rem solid var(--primary-color);
+  border-radius: 0.32rem;
 }
 
-.loginBtn {
-    margin-top: 10.5rem;
-    padding: 0.9rem 1.1rem;
-
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 0.32rem;
-
-    cursor: pointer;
+/* Button */
+.login--form__btn {
+  margin-top: 10.5rem;
 }
 
-.loginBtn > button {
-    font-weight: 600;
-    font-size: 1.2rem;
-    letter-spacing: 0.05rem;
+.login--form__btn button {
+  display: block;
 
-    display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.9rem 1.1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
 
-    margin: 0 auto;
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--white-color);
+  letter-spacing: 0.05rem;
 
-    cursor: pointer;
+  cursor: pointer;
 }

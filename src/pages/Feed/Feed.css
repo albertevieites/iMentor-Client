@@ -1,0 +1,19 @@
+.feed {
+  display: grid;
+  justify-items: center;
+  margin-top: 7rem;
+}
+
+.feed__btn {
+  background-color: #32c3ff;
+  color: white;
+  border-radius: 0.32rem;
+  padding: 0.6rem 2rem;
+  border: none;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+

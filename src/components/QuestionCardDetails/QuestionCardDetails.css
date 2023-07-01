@@ -1,43 +1,49 @@
-.profileImg {
-  width: 10%;
+.question--details {
+  margin-top: 7rem;
 }
 
-.title {
-  position: absolute;
-  background: #ffffff;
-  border: 1px solid #32c3ff;
-  border-radius: 9px;
+/* Question buttons */
+.question--details__btns--edit {
+  width: 6rem;
+  padding: 0.5rem 0;
+  border: 0.125rem solid var(--primary-color);
+  border-radius: 0.32rem;
+  background-color: var(--primary-color);
 
-  left: 30px;
-  top: 105px;
-  text-align: center;
+  color: var(--white-color);
 }
 
-.description {
-  position: absolute;
+.question--details__btns--delete {
+  width: 6rem;
+  padding: 0.5rem 0;
+  border: 0.125rem solid var(--delete-color);
+  border-radius: 0.32rem;
+  background-color: var(--delete-color);
 
-  left: 20px;
-  right: 20px;
-  top: 145px;
-
-  background: #ffffff;
-  border: 1px solid #32c3ff;
-  border-radius: 9px;
-  text-align: center;
+  color: var(--white-color);
 }
 
-.post {
-  width: 76px;
-  height: 44px;
-  left: calc(50% - 76px * 0.5 + 118.5px);
-  top: calc(50% - 44px * 0.5 + 107px);
+/* Post comment */
+.question--details__addcomment--textarea {
+  width: 223px;
+  padding: 1rem;
 
-  background: #32c3ff;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--primary-color);
   border-radius: 5px;
 }
 
-.showComment {
+.question--details__addcomment button {
+  width: 6rem;
+  padding: 0.5rem 0;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.32rem;
+  background: var(--primary-color);
+
+  color: var(--white-color);
+}
+
+/* Added Comments */
+.question--details__addedcomments {
   left: 18px;
   top: 561px;
 
@@ -45,15 +51,6 @@
   border-radius: 21px;
 }
 
-.comment-area {
-  width: 223px;
-  height: 52.11px;
-  background: #ffffff;
-  border: 1px solid #32c3ff;
-  border-radius: 9px;
-}
-
-.postComment {
-  display: flex;
-  justify-content: center;
+.question--details__addedcomments img {
+  width: 10%;
 }

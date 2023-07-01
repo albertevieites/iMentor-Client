@@ -1,19 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 
-import AddForm from "../components/AddForm/AddForm";
-import Chat from "../pages/Chat/Chat";
-import ChatList from "../pages/ChatList/ChatList";
 import EditProfilePage from "../pages/EditProfile/EditProfile";
-import EditQuestionPage from "../pages/EditQuestion/EditQuestion";
+import Feed from "../pages/Feed/Feed";
 import Home from "../pages/Home/Home";
 import LoginPage from "../pages/Login/Login";
 import Mentor from "../pages/Mentors/Mentors";
 import Profile from "../pages/Profile/Profile";
-import Question from "../pages/Question/Question";
 import QuestionDetails from "../pages/QuestionDetails/QuestionDetails";
 import Signup from "../pages/Signup/Signup";
 import NotLoggedInRoute from "./NotLoggedInRoute";
 import PrivateRoute from "./PrivateRoute";
+import AddQuestion from "../pages/AddQuestion/AddQuestion";
 
 const AppRoutes = () => {
   return (
@@ -30,8 +27,8 @@ const AppRoutes = () => {
         <Route path="" element={<LoginPage />} />
       </Route>
 
-      <Route path="/questions" element={<PrivateRoute />}>
-        <Route path="" element={<Question />} />
+      <Route path="/feed" element={<PrivateRoute />}>
+        <Route path="" element={<Feed />} />
       </Route>
 
       <Route path="/mentors" element={<PrivateRoute />}>
@@ -39,7 +36,7 @@ const AppRoutes = () => {
       </Route>
 
       <Route path="/addquestion" element={<PrivateRoute />}>
-        <Route path="" element={<AddForm />} />
+        <Route path="" element={<AddQuestion />} />
       </Route>
 
       <Route path="/questions/:id" element={<PrivateRoute />}>
@@ -47,7 +44,7 @@ const AppRoutes = () => {
       </Route>
 
       <Route path="/question/:id/edit" element={<PrivateRoute />}>
-        <Route path="" element={<EditQuestionPage />} />
+        <Route path="" element={<AddQuestion />} />
       </Route>
 
       <Route path="/profile/:id" element={<PrivateRoute />}>
@@ -58,15 +55,7 @@ const AppRoutes = () => {
         <Route path="" element={<EditProfilePage />} />
       </Route>
 
-      <Route path="/chats/:id" element={<PrivateRoute />}>
-        <Route path="" element={<ChatList />} />
-      </Route>
-
-      <Route path="/chats/:id/:otherId" element={<PrivateRoute />}>
-        <Route path="" element={<Chat />} />
-      </Route>
-
-      <Route path="*" element={<h1>Super-duper error 404</h1>} />
+      <Route path="*" element={<h1>⚠️ error 404 ⚠️</h1>} />
     </Routes>
   );
 };

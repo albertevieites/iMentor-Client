@@ -6,7 +6,7 @@ footer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 1.7rem 0;
+    padding: 1rem 0;
 
     width: 100dvw;
     background-color: var(--tertiary-color);

@@ -7,11 +7,9 @@ import "./variables.css";
 
 const App = () => {
   return (
-    <>
       <Layout>
         <AppRoutes />
       </Layout>
-    </>
   );
 };
 

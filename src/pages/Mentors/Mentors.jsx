@@ -4,7 +4,7 @@ import mentors from "../../services/mentor.services";
 
 import MentorCard from "../../components/MentorCard/MentorCard";
 
-import "./Mentors.css"
+import "./Mentors.css";
 
 import Skills from "../../components/Skills/Skills";
 
@@ -24,7 +24,7 @@ const Mentors = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  function filterMentors(e) {
+  const filterMentors = (e) => {
     if (!skillList.includes(e.target.id)) skillList.push(e.target.id);
     else {
       skillList.splice(skillList.indexOf(e.target.id), 1);
@@ -35,17 +35,13 @@ const Mentors = () => {
     );
     if (newList.length > 0) setFilteredList(newList);
     else setFilteredList(mentorsList);
-
-    console.log(newList);
-  }
-
-  console.log(filteredList);
+  };
 
   return (
     <div className="mentors">
       <Skills function={filterMentors} filtering={skillList}></Skills>
       <div className="mentors__grid">
-        {filteredList.map(each => (
+        {filteredList.map((each) => (
           <MentorCard
             userId={each._id}
             profileImg={each.profileImg}

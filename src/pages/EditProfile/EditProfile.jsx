@@ -5,13 +5,13 @@ import { AuthContext } from "../../context/auth.context";
 import Profile from "../../services/profile.services";
 import uploadService from "../../services/upload.services";
 
-import Skills from "../../components/Skills/Skills";
+// import Skills from "../../components/Skills/Skills";
 
 import "./EditProfile.css";
 
+// EDIT PROFILE COMPONENT
 const EditProfilePage = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   const [formState, setFormState] = useState();
   const [userType, setUserType] = useState();
@@ -28,7 +28,7 @@ const EditProfilePage = () => {
         setUserType(user.data.userType);
       })
       .catch((err) => console.log(err));
-  }, [user]);
+  }, [user._id]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -46,7 +46,7 @@ const EditProfilePage = () => {
     setFormState(newFormState);
   };
 
-  function handleFileUpload(event) {
+  const handleFileUpload = (event) => {
     setImage(true);
     const uploadData = new FormData();
     uploadData.append("imageData", event.target.files[0]);
@@ -57,9 +57,9 @@ const EditProfilePage = () => {
         setFormState({ ...formState, profileImg: data.cloudinary_url });
       })
       .catch((err) => console.log(err));
-  }
+  };
 
-  function handleType() {
+  const handleType = () => {
     if (userType === "mentor") {
       setUserType("mentee");
       setFormState({ ...formState, userType: "mentee" });
@@ -69,56 +69,65 @@ const EditProfilePage = () => {
       setFormState({ ...formState, userType: "mentor" });
       console.log(formState);
     }
-  }
+  };
 
-  function skillChange(e) {
+  /*  const skillChange = (e) => {
     const skillId = e.target.id;
     const newForm = { ...formState };
     if (!newForm.skills.includes(skillId)) newForm.skills.push(skillId);
     else newForm.skills.splice(newForm.skills.indexOf(skillId), 1);
     setFormState(newForm);
-  }
+  }; */
 
   return (
-    <div className="edContainer">
-      <form className="fomid" onSubmit={handleSubmit}>
-        <div className="formidinside">
-          <img
-            className="userImage"
-            src={formState?.profileImg}
-            alt={formState?.username}
-          ></img>
+    <div className="edit--profile">
+      <form onSubmit={handleSubmit}>
+        {/* Image */}
+        <img src={formState?.profileImg} alt={formState?.username} />
 
-          <select id="course" name="course" onChange={handleInputChange}>
-            {!formState?.course && (
-              <option value="" selected>
-                Select a course
-              </option>
-            )}
-            {formState?.course === "Web Development" ? (
-              <option value="Web Development" selected>
-                Web Development
-              </option>
-            ) : (
-              <option value="Web Development">Web Development</option>
-            )}
-            {formState?.course === "UX/UI" ? (
-              <option value="UX/UI" selected>
-                UX/UI
-              </option>
-            ) : (
-              <option value="UX/UI">UX/UI</option>
-            )}
-            {formState?.course === "Data Analytics" ? (
-              <option value="Data Analytics" selected>
-                Data Analytics
-              </option>
-            ) : (
-              <option value="Data Analytics">Data Analytics</option>
-            )}
-          </select>
+        {/* Avatar upload input  */}
+        <input
+          type="file"
+          className="edit--profile__upload"
+          placeholder="Upload Image"
+          name="profileImg"
+          onChange={handleFileUpload}
+        />
 
-          <label className="switch">
+        {/* Select course */}
+        <select id="course" name="course" onChange={handleInputChange}>
+          {!formState?.course && (
+            <option value="" selected>
+              Select a course
+            </option>
+          )}
+          {formState?.course === "Web Development" ? (
+            <option value="Web Development" selected>
+              Web Development
+            </option>
+          ) : (
+            <option value="Web Development">Web Development</option>
+          )}
+          {formState?.course === "UX/UI" ? (
+            <option value="UX/UI" selected>
+              UX/UI
+            </option>
+          ) : (
+            <option value="UX/UI">UX/UI</option>
+          )}
+          {formState?.course === "Data Analytics" ? (
+            <option value="Data Analytics" selected>
+              Data Analytics
+            </option>
+          ) : (
+            <option value="Data Analytics">Data Analytics</option>
+          )}
+        </select>
+
+        {/* Mentor or mentee selection */}
+        <div className="edit--profile__role">
+          <p>Mentee</p>
+          <label className="edit--profile__switch">
             {userType === "mentor" ? (
               <input type="checkbox" checked onClick={handleType} />
             ) : (
@@ -126,64 +135,71 @@ const EditProfilePage = () => {
             )}
             <span className="slider round"></span>
           </label>
-
-          <input
-            type="text"
-            id="name"
-            name="username"
-            placeholder="Name"
-            className="imputs"
-            value={formState?.username}
-            onChange={handleInputChange}
-          />
-          <p className="par">{formState?.email}</p>
-          {userType === "mentor" && (
-            <>
-              <input
-                placeholder="Current position"
-                className="imputs"
-                type="text"
-                id="name"
-                name="ocuppation"
-                value={formState?.ocuppation}
-                onChange={handleInputChange}
-              />
-
-              <input
-                placeholder="Company name"
-                className="imputs"
-                type="text"
-                id="name"
-                name="company"
-                value={formState?.company}
-                onChange={handleInputChange}
-              />
-              <Skills function={skillChange}></Skills>
-            </>
-          )}
-
-          <textarea
-            placeholder="About Me"
-            className="about"
-            type="text"
-            id="name"
-            name="aboutMe"
-            value={formState?.aboutMe}
-            onChange={handleInputChange}
-          />
-
-          <input
-            type="file"
-            className="file"
-            placeholder="Upload Image"
-            name="profileImg"
-            onChange={handleFileUpload}
-          />
-
-          <button className="uploadbtn" type="submit" value="Post">
-            Save Changes
-          </button>
+          <p>Mentor</p>
         </div>
+
+        {/* Name */}
+        <input
+          type="text"
+          id="name"
+          name="username"
+          placeholder="Name"
+          className="edit--profile__name"
+          value={formState?.username}
+          onChange={handleInputChange}
+        />
+
+        {/* Email */}
+        <input
+          type="text"
+          id="email"
+          name="email"
+          className="edit--profile__email"
+          value={formState?.email}
+          onChange={handleInputChange}
+        />
+
+        {/* If the user is mentor, render some more inputs */}
+        {userType === "mentor" && (
+          <>
+            <input
+              placeholder="Current position"
+              className="edit--profile__ocuppation"
+              type="text"
+              id="name"
+              name="ocuppation"
+              value={formState?.ocuppation}
+              onChange={handleInputChange}
+            />
+
+            <input
+              placeholder="Company name"
+              className="edit--profile__company"
+              type="text"
+              id="name"
+              name="company"
+              value={formState?.company}
+              onChange={handleInputChange}
+            />
+            {/* <Skills function={skillChange}></Skills> */}
+          </>
+        )}
+
+        {/* About me */}
+        <textarea
+          placeholder="About Me"
+          className="about"
+          type="text"
+          id="name"
+          name="aboutMe"
+          value={formState?.aboutMe}
+          onChange={handleInputChange}
+        />
+
+        {/* Save button */}
+        <button className="edit--profile__btn" type="submit" value="Post">
+          Save Changes
+        </button>
       </form>
 
       {error && <p>{error}</p>}

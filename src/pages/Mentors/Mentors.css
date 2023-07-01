@@ -2,7 +2,6 @@
   display: grid;
   justify-items: center;
   grid-row-gap: 5rem;
-  border: 2px solid green;
 
   max-width: 1440px;
   width: 100%;

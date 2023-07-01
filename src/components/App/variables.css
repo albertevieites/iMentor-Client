@@ -6,7 +6,11 @@
   --chat-color: hsla(198, 100%, 60%, 0.1);
   --black-color: hsl(300, 3%, 7%);
   --grey-color: hsl(0, 0%, 44%);
+  --grey-slider-color: hsl(0, 0%, 81%);
   --white-color: hsl(0, 0%, 100%);
+
+  --mentee-color: #ff9432;
+  --delete-color: hsl(0, 81%, 60%);
 
   --ff-size: 16px;
 }

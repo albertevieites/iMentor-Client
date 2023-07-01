@@ -79,12 +79,13 @@ const Loginform = () => {
           />
         </div>
 
-        <div className="loginBtn">
+        <div className="login--form__btn">
           <button type="submit">Login</button>
         </div>
+        
+        {loading && <Loader />}
       </form>
       {error && <p>Incorrect login details</p>}
-      {loading && <Loader />}
     </>
   );
 };

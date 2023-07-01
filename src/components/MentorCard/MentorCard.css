@@ -47,22 +47,11 @@
 }
 
 .mentor--card__btns--profile button {
-  background-color: var(--white-color);
-  color: var(--primary-color);
+  padding: 0.6rem 2rem;
   border: 0.125rem solid var(--primary-color);
   border-radius: 0.32rem;
-
-  padding: 0.6rem 2rem;
-
-  font-size: 1rem;
-}
-
-.mentor--card__btns--contact button {
   background-color: var(--primary-color);
-  color: var(--white-color);
-  border-radius: 0.32rem;
-  padding: 0.6rem 2rem;
-  border: 0.125rem solid var(--primary-color);
-
+  
   font-size: 1rem;
+  color: var(--white-color);
 }

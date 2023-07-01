@@ -1,144 +1,161 @@
-.edContainer{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.fomid{
-  justify-content: center;
-}
-
-.formidinside{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.edit--profile form {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
   gap: 1rem;
 
-
+  margin-top: 7rem;
 }
 
-.file{
-  width: 90%;
-  height: 52px;
-  left: calc(50% - 322px * 0.5 + 0.5px);
-  top: calc(50% - 52px * 0.5 + 143px);
-  background: #32C3FF;
-  border: 1px solid #96D1DF;
-  border-radius: 5px;
+/* Avatar image */
+.edit--profile img {
+  width: 5rem;
 }
 
-.about{
-  width: 90%;
-  height: 52px;
-  left: calc(50% - 322px * 0.5 + 0.5px);
-  top: calc(50% - 52px * 0.5 + 143px);
-  background: #ffffff;
-  border: 1px solid #32C3FF;
-  border-radius: 5px;
-  padding-left: 0.4rem;
-  padding-top: 0.4rem;
+/* Avatar file Upload */
+.edit--profile__upload {
+  width: 45%;
+  margin-bottom: 0.7rem;
 
-}
-
-.par{
   font-size: 0.8rem;
 }
 
-.imputs{
+/* Course selection */
+.edit--profile select {
+  border: none;
+}
+
+/* Mentor or menteer selection box */
+.edit--profile__role {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.edit--profile__role p {
+  font-size: 0.9rem;
+}
+
+.edit--profile__switch {
+  position: relative;
+
+  width: 45px;
+}
+
+.edit--profile__switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider */
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: auto;
+
+  border-radius: 5rem;
+  background-color: var(--grey-slider-color);
+
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.slider:before {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  content: "";
+
+  width: 15px;
+  height: 15px;
+  background-color: var(--white-color);
+
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* ------------------------------------- */
+/* ------------------------------------- */
+/* ------------------------------------- */
+
+/* Name */
+.edit--profile__name {
   width: 90%;
-  height: 25px;
-  left: calc(50% - 322px * 0.5 + 0.5px);
-  top: calc(50% - 52px * 0.5 + 143px);
-  background: #ffffff;
-  border: 1px solid #32C3FF;
+  padding: 0.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+/* Email */
+.edit--profile__email {
+  width: 90%;
+  padding: 0.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+/* Ocuppation */
+.edit--profile__ocuppation {
+  width: 90%;
+  padding: 0.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+/* Company */
+.edit--profile__company {
+  width: 90%;
+  padding: 0.6rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+/* About me */
+.edit--profile textarea {
+  width: 90%;
+  height: 7rem;
+
+  border: 1px solid var(--primary-color);
   border-radius: 5px;
   padding-left: 0.4rem;
+  padding-top: 0.4rem;
 }
 
-.userImage{
-  width: 25%;
-  border-radius: 50%;
-  margin-bottom: 1.25rem;
+form textarea::placeholder {
+  padding: 0.4rem;
 }
 
-.uploadbtn{
-  width: 90%;
-  height: 52px;
-  left: calc(50% - 322px * 0.5 + 0.5px);
-  top: calc(50% - 52px * 0.5 + 243px);
-  background: #32C3FF;
-  text-decoration: ;
-  border: 1px solid #96D1DF;
+/* Save changes button */
+.edit--profile__btn {
+  width: 10rem;
+  padding: 0.7rem 0;
+  border: none;
   border-radius: 5px;
+  background-color: var(--primary-color);
+
+  color: var(--white-color);
 }
-
-
-
- .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-
-   .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-    height: 20px;
-    border-radius: 1rem;
-    margin-top: 0.5rem;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 12px;
-    width: 15px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-
-  }
-
-  input:checked + .slider {
-    background-color: #2196F3;
-
-  }
-
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-
-  }
-
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-
-  }
-
-  .slider.round {
-    border-radius: 34px;
-
-  }
-
-  .slider.round:before {
-    border-radius: 50%;
-
-  }

@@ -25,11 +25,6 @@ const MentorCard = (props) => {
               <button>Profile</button>
             </Link>
           </div>
-          <div className="mentor--card__btns--contact">
-            <Link to={`/chats/${user._id}/${props.userId}`}>
-              <button>Contact</button>
-            </Link>
-          </div>
         </div>
       </div>
   );

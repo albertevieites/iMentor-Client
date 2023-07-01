@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Skills from "../Skills/Skills";
+// import Skills from "../Skills/Skills";
 
 import { AuthContext } from "../../context/auth.context";
 
@@ -66,7 +66,7 @@ function AddForm() {
         .then(fileUrl => setImage(fileUrl))*/
   }
 
-  function skillChange(e) {
+  /*   function skillChange(e) {
     const skillId = e.target.id;
     const newForm = { ...formState };
 
@@ -74,53 +74,56 @@ function AddForm() {
     else newForm.skills.splice(newForm.skills.indexOf(skillId), 1);
     setFormState(newForm);
     console.log(newForm.skills);
-  }
+  } */
 
   return (
-    <div className="addContainer">
+    <div className="add--form">
+      {/* Page title */}
       <h1 className="ask">Ask Questions</h1>
 
-      <br />
-
+      {/* FORM */}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name"></label> <br /> <br />
+        <label htmlFor="name"></label>
+        {/* Topic title */}
         <input
-          className="titleRectangle"
-          placeholder="     Topic Title"
+          className="add--form__topic"
+          placeholder="Topic title"
           type="text"
           id="name"
           name="title"
           value={formState.title}
           onChange={handleInputChange}
         />
-        <label htmlFor="text"></label> <br /> <br />
-        <input
-          className="codeRectangle"
-          placeholder="     Post your Code Here"
+
+        {/* Textarea code */}
+        <label htmlFor="text"></label>
+        <textarea
+          className="add--form__code"
+          placeholder="Post your code here"
           type="text"
           id="text"
           name="description"
           value={formState.description}
           onChange={handleInputChange}
-        />{" "}
-        <br />
-        <br />
+        />
+
+        {/* Updload screengrab */}
         <input
           type="file"
-          className="upload"
+          className="add--form__upload"
           name="imageUrl"
           onChange={(e) => handleFileUpload(e, setImageUrl)}
           multiple
         />
         {imageUrl && (
           <>
-            <img src={imageUrl} alt="profile" className="prevwImg" />
+            <img src={imageUrl} alt="profile" className="add--form__preview" />
           </>
-        )}{" "}
-        <br />
-        <br />
-        <Skills function={skillChange} filtering={formState.skills}></Skills>
-        <button className="questionButton" type="submit" value="Post">
+        )}
+
+        {/*<Skills function={skillChange} filtering={formState.skills}></Skills> */}
+
+        <button className="add--form__btn" type="submit" value="Post">
           Post Question
         </button>
       </form>

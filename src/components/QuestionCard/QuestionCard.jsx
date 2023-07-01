@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import "../../components/QuestionCard/QuestionCard.css";
 
 import questions from "../../services/question.services";
-import Skills from "../Skills/Skills";
+/* import Skills from "../Skills/Skills";
 
-const skillList = [];
+const skillList = []; */
 
-const Question = () => {
+const QuestionCard = () => {
   const [questionList, setQuestionList] = useState([]);
   const [filteredList, setfilteredList] = useState([]);
 
@@ -23,7 +23,7 @@ const Question = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  function filterQuestions(e) {
+/*   function filterQuestions(e) {
     if (!skillList.includes(e.target.id)) skillList.push(e.target.id);
     else {
       skillList.splice(skillList.indexOf(e.target.id), 1);
@@ -36,33 +36,33 @@ const Question = () => {
     else setfilteredList(questionList);
 
     console.log(newList);
-  }
+  } */
 
   return (
-    <div className="margin-bottom">
-      <div className="questionContainer">
-        <Skills function={filterQuestions} filtering={skillList}></Skills>
-        {filteredList.map(({ _id, owner, title, description }) => {
-          const shortDescription = description.slice(0, 100) + "...";
-          return (
-            <div key={_id} className="questionCard">
-              <div className="userInfo">
-                <img className="profileImg" src={owner.profileImg} alt=""></img>
-                <p>{owner.username}</p>
-              </div>
-              <div className="linkToQuestionDetails">
-                <h2>{title}</h2>
-                <p>{shortDescription}</p>
-              </div>
-              <Link to={`/questions/${_id}`} className="buttonContainer">
-                <button className="whiteButton">Read more</button>
-              </Link>
+    <div className="question--card">
+      {/* <Skills function={filterQuestions} filtering={skillList}></Skills> */}
+      {filteredList.map(({ _id, owner, title, description }) => {
+        const shortDescription = description.slice(0, 100) + "...";
+        return (
+          <div key={_id} className="question--card__each">
+            <div className="question--card__each--user">
+              <img src={owner.profileImg} alt=""/>
+              <p>{owner.username}</p>
             </div>
-          );
-        })}
-      </div>
+
+            <div className="question--card__each--content">
+              <h2>{title}</h2>
+              <p>{shortDescription}</p>
+            </div>
+
+            <Link to={`/questions/${_id}`} className="question--card__each--btn">
+              <button>Read more</button>
+            </Link>
+          </div>
+        );
+      })}
     </div>
   );
 };
 
-export default Question;
+export default QuestionCard;
