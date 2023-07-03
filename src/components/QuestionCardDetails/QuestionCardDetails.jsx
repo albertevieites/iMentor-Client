@@ -7,6 +7,8 @@ import questions from "../../services/question.services";
 
 import "./QuestionCardDetails.css";
 
+console.log(questions);
+
 const QuestionDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);

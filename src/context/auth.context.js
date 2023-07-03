@@ -19,6 +19,7 @@ function AuthProviderWrapper(props) {
     return localStorage.getItem("authToken");
   };
 
+  // User authentication
   const authenticateUser = () => {
     const storedToken = getToken();
     if (!storedToken) {
@@ -38,22 +39,6 @@ function AuthProviderWrapper(props) {
     }
   };
 
-/* 
-  const authenticateUser = async () => {
-    try {
-      const response = await authService() 
-      console.log(response.data) 
-      setIsLoggedIn(true) 
-      setIsLoading(false) 
-      setUser(response.data)
-     } catch(error) {
-      console.log(error)
-      setIsLoggedIn(false) 
-      setIsLoading(false) 
-      setUser(null)
-     } */
-
-
   const logOutUser = () => {
     removeToken();
     setIsLoggedIn(false);
@@ -63,7 +48,7 @@ function AuthProviderWrapper(props) {
 
   useEffect(() => {
     authenticateUser();
-  });
+  },[]);
 
   if(isLoading === true) {
     return <h3>...is validating user...</h3>
@@ -85,7 +70,3 @@ function AuthProviderWrapper(props) {
   );
 }
 export { AuthContext, AuthProviderWrapper };
-
-
-
-/* const authenticatedUser = async () => { try { const response = await verifyService() console.log(response.data/) setIsUserActive(true) setIsUserAdmin(true) setUser(response.data/) // le damos el payload setIsFetching(false) } catch (error) { console.log(error) setIsUserActive(false) setIsUserAdmin(false) setUser(null) // el usuario no se logro logear */

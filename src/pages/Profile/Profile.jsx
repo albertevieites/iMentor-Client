@@ -83,19 +83,14 @@ const ProfilePage = () => {
             </div>
           )}
 
-          {/* Posted questions */}
+          {/* Mentor's posted questions */}
           {userProfile.questions?.map((question) => {
             return (
               <div key={question._id} className="mentor--profile__question">
                 <Link
                   to={`/questions/${question._id}`}
-                  className="mentor--profile__link"
+                  className="mentor--profile__question--link"
                 >
-                  <img
-                    className="mentor--profile__question--avatar"
-                    src={question.owner.profileImg}
-                    alt=""
-                  />
                   <h2>{question.title}</h2>
                 </Link>
                 <pre>
@@ -106,7 +101,7 @@ const ProfilePage = () => {
                     width="150"
                     height="150"
                     src={question.imageUrl}
-                    alt="mentor--profile__question--screengrab"
+                    alt=""
                   />
                 )}
               </div>
@@ -135,7 +130,9 @@ const ProfilePage = () => {
           </h2>
 
           {/* Email */}
-          <p>{userProfile.email}</p>
+          <p className="mentee--profile__container--email">
+            {userProfile.email}
+          </p>
 
           {/* About */}
           <p className="mentee--profile__container--about">
@@ -159,24 +156,20 @@ const ProfilePage = () => {
             </div>
           )}
 
-          {/* Posted Questions */}
+          {/* Mentee posted Questions */}
           {userProfile.questions?.map((question) => {
             return (
               <div key={question._id} className="mentee--profile__question">
                 <Link
                   to={`/questions/${question._id}`}
-                  className="mentee--profile__link"
+                  className="mentee--profile__question--link"
                 >
-                  <img src={question.owner.profileImg} alt=""></img>
                   <h2>{question.title}</h2>
                 </Link>
-                <p>{question.description}</p>
-                <img
-                  width="150"
-                  height="150"
-                  src={question.imageUrl}
-                  alt="questionsImage"
-                />
+                <pre>
+                  <code>{question.description}</code>
+                </pre>
+                <img width="150" height="150" src={question.imageUrl} alt="" />
               </div>
             );
           })}

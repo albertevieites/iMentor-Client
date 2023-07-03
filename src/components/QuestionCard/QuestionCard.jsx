@@ -8,14 +8,20 @@ import questions from "../../services/question.services";
 
 const skillList = []; */
 
+console.log(questions);
+
 const QuestionCard = () => {
   const [questionList, setQuestionList] = useState([]);
   const [filteredList, setfilteredList] = useState([]);
+
+  console.log(questions);
+  console.log(questionList);
 
   useEffect(() => {
     questions
       .getAllQuestions()
       .then((questions) => {
+        console.log(questions.data);
         const reversedQuestions = questions.data.reverse();
         setQuestionList(reversedQuestions);
         setfilteredList(reversedQuestions);

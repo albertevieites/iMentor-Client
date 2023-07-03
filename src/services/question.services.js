@@ -17,38 +17,24 @@ class Questions {
     });
   }
 
-  getAllQuestions = () => {
-    return this.app.get("/questions");
-  };
+  getAllQuestions = () => this.app.get("/questions");
 
-  getOneQuestion = (id) => {
-    return this.app.get(`/questions/${id}`);
-  };
+  getOneQuestion = (id) => this.app.get(`/questions/${id}`);
 
-  createQuestion = (question) => {
-    return this.app.post("/questions", question);
-  };
+  createQuestion = (question) => this.app.post("/questions", question);
 
-  editQuestion = (question, id) => {
-    return this.app.post(`/questions/${id}/edit`, question);
-  };
+  editQuestion = (question, id) =>
+    this.app.post(`/questions/${id}/edit`, question);
 
-  deleteQuestion = (id) => {
-    return this.app.post(`/questions/${id}/delete`);
-  };
+  deleteQuestion = (id) => this.app.post(`/questions/${id}/delete`);
 
-  createComment = (comment, id) => {
-    return this.app.post(`/questions/${id}/comment/add`, comment);
-  };
+  createComment = (comment, id) =>
+    this.app.post(`/questions/${id}/comment/add`, comment);
 }
 
 const questions = new Questions();
 
 export default questions;
-
-
-
-
 
 /* import { useState, useEffect } from 'react';
 import axios from 'axios';

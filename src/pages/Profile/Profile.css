@@ -3,13 +3,28 @@
   margin-top: 7rem;
 }
 
+/* Container */
 .mentor--profile__container {
-  width: 90%;
+  width: 82%;
   margin: 0 auto;
 
   text-align: center;
 }
 
+/* Mentor Course */
+.mentor--profile__container--course {
+  padding-bottom: 1rem;
+
+  text-transform: uppercase;
+}
+
+/* Mentor Avatar */
+.mentor--profile img {
+  width: 5rem;
+  border-radius: 50%;
+}
+
+/* Mentor label */
 .mentor--profile__container span {
   display: block;
 
@@ -27,18 +42,14 @@
   color: var(--white-color);
 }
 
-.mentor--profile__container--course {
-  padding-bottom: 1rem;
-
-  text-transform: uppercase;
-}
-
+/* Mentor name */
 .mentor--profile__container--name {
-  font-size: 1.3rem;
-
   padding-bottom: 0.3rem;
+
+  font-size: 1.3rem;
 }
 
+/* Mentor email */
 .mentor--profile__container--email {
   font-size: 0.9rem;
   font-style: italic;
@@ -46,25 +57,25 @@
   padding-bottom: 0.7rem;
 }
 
-.mentor--profile__container--occupation {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.mentor--profile__container--company {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.mentor--profile img {
-  width: 5rem;
-}
-
+/* Mentor about */
 .mentor--profile__container--about {
   width: 90%;
   margin: 0 auto;
 }
 
+/* Mentor occupation */
+.mentor--profile__container--occupation {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Mentor company */
+.mentor--profile__container--company {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Mentor buttons */
 .mentor--profile__btns {
   display: flex;
   justify-content: center;
@@ -93,27 +104,33 @@
   color: var(--primary-color);
 }
 
-.mentor--profile__link {
+/* Mentor's questions */
+.mentor--profile__question {
+  margin-top: 2rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+}
+
+.mentor--profile__question--link {
   text-decoration: none;
 }
 
-.mentor--profile__question {
-  width: 90%;
-}
-
 .mentor--profile__question h2 {
-  padding: 1rem 0;
+  padding-bottom: .7rem;
 
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--black-color);
   text-align: left;
 }
 
+/* Coding block for both (mentor and mentee) */
 pre {
   text-align: left;
 }
 
 code {
+  font-size: .85rem;
   color: var(--grey-color);
 }
 
@@ -123,32 +140,25 @@ code {
 
 /* MENTEE PROFILE */
 .mentee--profile {
-  display: flex;
-  justify-content: center;
-
-  width: 100%;
   margin-top: 7rem;
 }
 
-/* Container */
+/* Mentee Container */
 .mentee--profile__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   width: 82%;
+  margin: 0 auto;
+
+  text-align: center;
 }
 
-/* Course */
+/* Mentee Course */
 .mentee--profile__course {
-  padding-bottom: 0.7rem;
+  padding-bottom: 1rem;
 
-  font-size: 1.2rem;
-  font-weight: 600;
   text-transform: uppercase;
 }
 
-/* Avatar */
+/* Mentee Avatar */
 .mentee--profile img {
   width: 5rem;
   border-radius: 50%;
@@ -172,21 +182,31 @@ code {
   color: var(--white-color);
 }
 
-/* Name */
+/* Mentee Name */
 .mentee--profile__container--name {
-  padding: 1rem 0;
+  padding: 0.3rem;
+
+  font-size: 1.3rem;
 }
 
-/* About */
+/* Mentee email */
+.mentee--profile__container--email {
+  font-size: 0.9rem;
+  font-style: italic;
+
+  padding-bottom: 0.7rem;
+}
+
+/* Mentee About */
 .mentee--profile__container--about {
-  width: 80%;
-
-  letter-spacing: .01rem;
+  width: 90%;
+  margin: 0 auto;
 }
 
-/* Buttons */
+/* Mentee Buttons */
 .mentee--profile__btns {
   display: flex;
+  justify-content: center;
   gap: 1rem;
 
   margin-top: 2rem;
@@ -205,9 +225,29 @@ code {
 .mentee--profile__btns--logout {
   width: 6rem;
   padding: 0.5rem 0;
-  border: 0.125rem solid #32c3ff;
+  border: 0.125rem solid var(--primary-color);
   border-radius: 0.32rem;
   background-color: white;
 
-  color: #32c3ff;
+  color: var(--primary-color);
+}
+
+/* Mentee's questions */
+.mentee--profile__question {
+  margin-top: 2rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+}
+
+.mentee--profile__question--link {
+  text-decoration: none;
+}
+
+.mentee--profile__question h2 {
+  padding-bottom: .7rem;
+
+  font-size: 1rem;
+  color: var(--black-color);
+  text-align: left;
 }
