@@ -16,10 +16,18 @@
 .question--card__each--user {
   display: flex;
   gap: 10px;
+  align-items: flex-end;
+
+  margin-bottom: 1rem;
 }
 
 .question--card__each--user img {
   border-radius: 100%;
+  width: 35px;
+}
+
+.question--card__each--user p {
+  font-weight: 600;
 }
 
 .question--card__each--content {
@@ -28,11 +36,40 @@
 
 .question--card__each--btn {
   margin-top: 10px;
-  padding: 0.6rem 2rem;
-  border: 0.125rem solid var(--primary-color);
-  border-radius: 0.32rem;
-  background-color: var(--white-color);
+}
 
-  font-size: 0.7rem;
+.question--card__each--btn button {
+  padding: .2rem .5rem;
+  background: none;
+  border: 2px solid var(--primary-color);
+  border-radius: .3rem;
+  outline: inherit;
+
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.question--card__each--read {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.question--card__each--read img {
+  width: 22px;
+  height: auto;
+}
+
+.question--card__each--comments {
+  display: flex;
+  gap: .2rem;
+  align-items: center;
+}
+
+.question--card__each--comments p{
+  font-size: .8rem;
   color: var(--primary-color);
 }

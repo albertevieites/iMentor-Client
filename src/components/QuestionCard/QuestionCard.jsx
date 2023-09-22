@@ -1,27 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import questions from "../../services/question.services";
+
 import "../../components/QuestionCard/QuestionCard.css";
 
-import questions from "../../services/question.services";
+import BubbleIcon from "../../assets/images/bubble.svg";
+
 /* import Skills from "../Skills/Skills";
 
 const skillList = []; */
-
-console.log(questions);
 
 const QuestionCard = () => {
   const [questionList, setQuestionList] = useState([]);
   const [filteredList, setfilteredList] = useState([]);
 
-  console.log(questions);
-  console.log(questionList);
-
   useEffect(() => {
     questions
       .getAllQuestions()
       .then((questions) => {
-        console.log(questions.data);
         const reversedQuestions = questions.data.reverse();
         setQuestionList(reversedQuestions);
         setfilteredList(reversedQuestions);
@@ -29,7 +26,7 @@ const QuestionCard = () => {
       .catch((err) => console.log(err));
   }, []);
 
-/*   function filterQuestions(e) {
+  /*   function filterQuestions(e) {
     if (!skillList.includes(e.target.id)) skillList.push(e.target.id);
     else {
       skillList.splice(skillList.indexOf(e.target.id), 1);
@@ -48,22 +45,29 @@ const QuestionCard = () => {
     <div className="question--card">
       {/* <Skills function={filterQuestions} filtering={skillList}></Skills> */}
       {filteredList.map(({ _id, owner, title, description }) => {
-        const shortDescription = description.slice(0, 100) + "...";
         return (
           <div key={_id} className="question--card__each">
             <div className="question--card__each--user">
-              <img src={owner.profileImg} alt=""/>
+              <img src={owner.profileImg} alt="" />
               <p>{owner.username}</p>
             </div>
 
             <div className="question--card__each--content">
-              <h2>{title}</h2>
-              <p>{shortDescription}</p>
+              <p>{description}</p>
             </div>
 
-            <Link to={`/questions/${_id}`} className="question--card__each--btn">
-              <button>Read more</button>
-            </Link>
+            <div className="question--card__each--read">
+              <div className="question--card__each--comments">
+                <img src={BubbleIcon} alt="bubble icon" />
+                <p>1K</p>
+              </div>
+              <Link
+                to={`/questions/${_id}`}
+                className="question--card__each--btn"
+              >
+                <button>Read more</button>
+              </Link>
+            </div>
           </div>
         );
       })}

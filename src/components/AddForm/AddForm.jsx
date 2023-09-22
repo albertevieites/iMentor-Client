@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// import Skills from "../Skills/Skills";
+import Skills from "../Skills/Skills";
 
 import { AuthContext } from "../../context/auth.context";
 
@@ -16,6 +16,7 @@ function AddForm() {
   const startingFormState = {
     title: "",
     description: "",
+    code: "",
     imageUrl: "",
     owner: { user },
     skills: [],
@@ -66,7 +67,7 @@ function AddForm() {
         .then(fileUrl => setImage(fileUrl))*/
   }
 
-  /*   function skillChange(e) {
+  function skillChange(e) {
     const skillId = e.target.id;
     const newForm = { ...formState };
 
@@ -74,7 +75,7 @@ function AddForm() {
     else newForm.skills.splice(newForm.skills.indexOf(skillId), 1);
     setFormState(newForm);
     console.log(newForm.skills);
-  } */
+  }
 
   return (
     <div className="add--form">
@@ -83,11 +84,11 @@ function AddForm() {
 
       {/* FORM */}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name"></label>
-        {/* Topic title */}
+        <label htmlFor="title"></label>
+        {/* Question title */}
         <input
-          className="add--form__topic"
-          placeholder="Topic title"
+          className="add--form__title"
+          placeholder="Question Title"
           type="text"
           id="name"
           name="title"
@@ -95,15 +96,26 @@ function AddForm() {
           onChange={handleInputChange}
         />
 
-        {/* Textarea code */}
-        <label htmlFor="text"></label>
-        <textarea
-          className="add--form__code"
-          placeholder="Post your code here"
+        {/* Description */}
+        <label htmlFor="description"></label>
+        <input
+          className="add--form__description"
+          placeholder="Description"
           type="text"
-          id="text"
           name="description"
           value={formState.description}
+          onChange={handleInputChange}
+        />
+
+        {/* Code */}
+        <label htmlFor="code"></label>
+        <textarea
+          className="add--form__code"
+          placeholder="Post your code here..."
+          type="text"
+          id="text"
+          name="code"
+          value={formState.code}
           onChange={handleInputChange}
         />
 
@@ -121,7 +133,7 @@ function AddForm() {
           </>
         )}
 
-        {/*<Skills function={skillChange} filtering={formState.skills}></Skills> */}
+        <Skills function={skillChange} filtering={formState.skills}></Skills>
 
         <button className="add--form__btn" type="submit" value="Post">
           Post Question

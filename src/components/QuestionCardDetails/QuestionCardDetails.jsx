@@ -84,17 +84,20 @@ const QuestionDetails = () => {
         {/* Question content */}
         <div className="question--details__container--top">
           <h3>{question?.title}</h3>
-          <p>{question?.description}</p>
+          <pre>
+            <code>{question?.description}</code>
+          </pre>
           <img src={question?.imageUrl} alt="" />
         </div>
 
-        {/* Question add comments */}
+        {/* Add comments */}
         <div className="question--details__addcomment">
           <form action="submit" onSubmit={handleSubmit}>
             <input
               className="question--details__addcomment--textarea"
               type="text"
               name="comment"
+              placeholder="Comment here..."
               onChange={handleInput}
             />
             <button type="submit">Post</button>
@@ -105,11 +108,11 @@ const QuestionDetails = () => {
         <div className="question--details__addedcomments">
           {question?.Comments.map((comment) => {
             return (
-              <div key={comment._id} className="question--details__addedcomments--container">
-                <img
-                  src={comment.user.profileImg}
-                  alt="profile pic"
-                />
+              <div
+                key={comment._id}
+                className="question--details__addedcomments--container"
+              >
+                <img src={comment.user.profileImg} alt="profile pic" />
                 <h3>{comment.user.username}</h3>
                 <p>{comment.text}</p>
               </div>

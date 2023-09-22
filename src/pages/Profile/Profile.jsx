@@ -11,6 +11,8 @@ const ProfilePage = () => {
   const [userProfile, setuserProfile] = useState([]);
   const profileId = useParams();
 
+  console.log(userProfile);
+
   useEffect(() => {
     profile
       .getOneUser(profileId.id)
@@ -94,7 +96,7 @@ const ProfilePage = () => {
                   <h2>{question.title}</h2>
                 </Link>
                 <pre>
-                  <code>{question.description}</code>
+                  <code>{question.code}</code>
                 </pre>
                 {question.imageUrl && (
                   <img
@@ -134,10 +136,18 @@ const ProfilePage = () => {
             {userProfile.email}
           </p>
 
-          {/* About */}
+          {/* About Me */}
           <p className="mentee--profile__container--about">
             {userProfile.aboutMe}
           </p>
+
+          {/* Skills */}
+          <div className="mentee--profile__container--skills">
+            {userProfile.skills &&
+              userProfile.skills.map((skill, index) => (
+                <p key={index}>{skill}</p>
+              ))}
+          </div>
 
           {/* Mentee buttons */}
           {user._id === userProfile._id && (

@@ -10,15 +10,3 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-@media (min-width: 768px) { 
-  .mentors__grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 1200px) { 
-  .mentors__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}

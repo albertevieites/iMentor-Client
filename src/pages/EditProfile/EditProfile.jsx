@@ -6,6 +6,7 @@ import Profile from "../../services/profile.services";
 import uploadService from "../../services/upload.services";
 
 // import Skills from "../../components/Skills/Skills";
+import skillsArr from "../../utils/skillsArr";
 
 import "./EditProfile.css";
 
@@ -18,12 +19,14 @@ const EditProfilePage = () => {
   const [error, setError] = useState(null);
   const [image, setImage] = useState(false);
 
+  console.log(formState);
+  console.log(skillsArr);
+
   const navigate = useNavigate();
 
   useEffect(() => {
     Profile.getOneUser(user._id)
       .then((user) => {
-        console.log("user", user.data);
         setFormState(user.data);
         setUserType(user.data.userType);
       })
@@ -41,9 +44,17 @@ const EditProfilePage = () => {
   };
 
   const handleInputChange = (event) => {
-    const { name, value } = event.currentTarget;
-    const newFormState = { ...formState, [name]: value };
-    setFormState(newFormState);
+    const { name, options } = event.currentTarget;
+
+    if (name === "skills") {
+      const selectedSkills = Array.from(options)
+      .filter(option => option.selected)
+      .map(option => option.value);
+      setFormState(prevState => ({...prevState, [name]: selectedSkills }));
+    } else {
+      const { value } = event.currentTarget;
+      setFormState(prevState => ({...prevState, [name]: value }));
+    }
   };
 
   const handleFileUpload = (event) => {
@@ -71,13 +82,13 @@ const EditProfilePage = () => {
     }
   };
 
-  /*  const skillChange = (e) => {
+  const skillChange = (e) => {
     const skillId = e.target.id;
     const newForm = { ...formState };
     if (!newForm.skills.includes(skillId)) newForm.skills.push(skillId);
     else newForm.skills.splice(newForm.skills.indexOf(skillId), 1);
     setFormState(newForm);
-  }; */
+  };
 
   return (
     <div className="edit--profile">
@@ -195,6 +206,21 @@ const EditProfilePage = () => {
           value={formState?.aboutMe}
           onChange={handleInputChange}
         />
+
+        {/* Skills */}
+        <label for="skills">Skills</label>
+        <select
+          name="skills"
+          value={formState?.skills}
+          onChange={handleInputChange}
+          multiple
+        >
+          {skillsArr.map((skill) => (
+            <option key={skill} value={skill}>
+              {skill}
+            </option>
+          ))}
+        </select>
 
         {/* Save button */}
         <button className="edit--profile__btn" type="submit" value="Post">

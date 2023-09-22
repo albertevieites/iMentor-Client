@@ -25,7 +25,7 @@
 
 /* Post comment */
 .question--details__addcomment--textarea {
-  width: 223px;
+  width: 65%;
   padding: 1rem;
 
   border: 1px solid var(--primary-color);
@@ -33,12 +33,12 @@
 }
 
 .question--details__addcomment button {
-  width: 6rem;
-  padding: 0.5rem 0;
+  padding: 1rem;
+  background: var(--primary-color);
   border: 1px solid var(--primary-color);
   border-radius: 0.32rem;
-  background: var(--primary-color);
 
+  font-weight: 600;
   color: var(--white-color);
 }
 

@@ -1,19 +1,26 @@
 .feed {
   display: grid;
   justify-items: center;
-  margin-top: 7rem;
+  margin-top: 5rem;
 }
 
 .feed__btn {
-  background-color: #32c3ff;
-  color: white;
-  border-radius: 0.32rem;
+  position: fixed;
+  bottom: 120px;
+
+  width: 90%;
+  max-width: 330px;
+  margin-top: 7rem;
   padding: 0.6rem 2rem;
   border: none;
-  text-decoration: none;
-  font-size: 1rem;
-  margin-top: 40px;
-  margin-bottom: 30px;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+
+  z-index: 1;
 }
 
-
+.feed a {
+  text-decoration: none;
+  text-align: center;
+  color: var(--white-color);
+}

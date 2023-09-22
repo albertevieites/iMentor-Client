@@ -7,12 +7,11 @@ import "./Feed.css";
 const Feed = () => {
   return (
     <div className="feed">
-      <h2 className="feed__title">Feed</h2>
-      <Link to={`/addquestion`}>
-        <button className="feed__btn">Add a post</button>
-      </Link>
-
       <QuestionCard />
+
+      <Link to={`/addquestion`} className="feed__btn">
+        Add a post
+      </Link>
     </div>
   );
 };

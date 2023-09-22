@@ -1,3 +1,6 @@
+.edit--profile {
+  margin-bottom: 7rem;
+}
 .edit--profile form {
   display: grid;
   grid-template-columns: 1fr;
@@ -119,7 +122,7 @@ input:checked + .slider:before {
 }
 
 /* Ocuppation */
-.edit--profile__ocuppation {
+.edit--profile__occupation {
   width: 90%;
   padding: 0.6rem;
   border: 1px solid var(--primary-color);
