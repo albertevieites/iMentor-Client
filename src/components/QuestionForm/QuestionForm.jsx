@@ -1,43 +1,57 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-import Skills from "../Skills/Skills";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth.context";
 
-import questionService from "../../services/question.services";
+// Services
+import { createQuestion } from "../../services/question.services";
 import uploadService from "../../services/upload.services";
 
-import "./AddForm.css";
+// Data
+import tagsArr from "../../utils/tagsArr";
 
-function AddForm() {
-  const [imageUrl, setImageUrl] = useState(false);
+import "./QuestionForm.css";
+
+function QuestionForm() {
+  console.log(tagsArr);
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const { user } = useContext(AuthContext);
+
   const startingFormState = {
     title: "",
     description: "",
     code: "",
     imageUrl: "",
     owner: { user },
-    skills: [],
+    tags: [],
   };
 
   const [formState, setFormState] = useState(startingFormState);
   const [error, setError] = useState();
-  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.state?.data) {
+      setFormState((prevState) => ({
+        ...prevState,
+        ...location.state.data,
+        owner: { user },
+      }));
+    }
+  }, [location.state, user]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("Form state before submit: ", formState);
     if (formState.title && formState.description) {
-      questionService
-        .createQuestion(formState)
+      createQuestion(formState)
         .then((data) => {
-          console.log(data.data);
+          console.log("API Response on Submit: ", data);
           navigate(`/questions/${data?.data._id}`);
         })
-
         .catch((error) => {
-          console.log(error);
+          console.log("API Error on Submit: ", error);
         });
     } else {
       setError("Please fill out the empty fields");
@@ -45,6 +59,7 @@ function AddForm() {
   };
 
   const handleInputChange = (event) => {
+    console.log("Handling input change for:", event.currentTarget.name);
     const { name, value } = event.currentTarget;
     const newFormState = { ...formState, [name]: value };
     setFormState(newFormState);
@@ -57,7 +72,6 @@ function AddForm() {
     uploadService
       .uploadImage(uploadData)
       .then(({ data }) => {
-        setImageUrl(data.cloudinary_url);
         setFormState({ ...formState, imageUrl: data.cloudinary_url });
       })
       .catch((err) => console.log(err));
@@ -67,15 +81,29 @@ function AddForm() {
         .then(fileUrl => setImage(fileUrl))*/
   }
 
-  function skillChange(e) {
-    const skillId = e.target.id;
-    const newForm = { ...formState };
+  const handleTagChange = (event) => {
+    const { options } = event.currentTarget;
+    const newTags = [];
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].selected) {
+        newTags.push(options[i].value);
+      }
+    }
+    setFormState((prevFormState) => ({
+      ...prevFormState,
+      tags: newTags,
+    }));
+  };
 
-    if (!newForm.skills.includes(skillId)) newForm.skills.push(skillId);
-    else newForm.skills.splice(newForm.skills.indexOf(skillId), 1);
-    setFormState(newForm);
-    console.log(newForm.skills);
-  }
+  /* function skillChange(e) {
+    const skillId = e.target.id;
+    setFormState((prevForm) => {
+      const newSkills = prevForm.skills.includes(skillId)
+        ? prevForm.skills.filter((s) => s !== skillId)
+        : [...prevForm.skills, skillId];
+      return { ...prevForm, skills: newSkills };
+    });
+  } */
 
   return (
     <div className="add--form">
@@ -88,9 +116,9 @@ function AddForm() {
         {/* Question title */}
         <input
           className="add--form__title"
-          placeholder="Question Title"
+          placeholder="Title"
           type="text"
-          id="name"
+          id="title"
           name="title"
           value={formState.title}
           onChange={handleInputChange}
@@ -102,6 +130,7 @@ function AddForm() {
           className="add--form__description"
           placeholder="Description"
           type="text"
+          id="description"
           name="description"
           value={formState.description}
           onChange={handleInputChange}
@@ -112,8 +141,7 @@ function AddForm() {
         <textarea
           className="add--form__code"
           placeholder="Post your code here..."
-          type="text"
-          id="text"
+          id="code"
           name="code"
           value={formState.code}
           onChange={handleInputChange}
@@ -123,18 +151,37 @@ function AddForm() {
         <input
           type="file"
           className="add--form__upload"
+          id="imageUrl"
           name="imageUrl"
-          onChange={(e) => handleFileUpload(e, setImageUrl)}
+          onChange={handleFileUpload}
           multiple
         />
-        {imageUrl && (
+        {formState.imageUrl && (
           <>
-            <img src={imageUrl} alt="profile" className="add--form__preview" />
+            <img
+              src={formState.imageUrl}
+              alt="profile"
+              className="add--form__preview"
+            />
           </>
         )}
 
-        <Skills function={skillChange} filtering={formState.skills}></Skills>
+        {/* Tags */}
+        <label for="tags">Tags</label>
+        <select
+          name="tags"
+          value={formState?.tags}
+          onChange={handleTagChange}
+          multiple
+        >
+          {tagsArr.map((tag) => (
+            <option key={tag} value={tag}>
+              {tag}
+            </option>
+          ))}
+        </select>
 
+        {/* Post Question Button */}
         <button className="add--form__btn" type="submit" value="Post">
           Post Question
         </button>
@@ -144,4 +191,4 @@ function AddForm() {
   );
 }
 
-export default AddForm;
+export default QuestionForm;

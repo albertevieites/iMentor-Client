@@ -6,12 +6,10 @@ import profile from "../../services/profile.services";
 
 import "./Profile.css";
 
-const ProfilePage = () => {
+const Profile = () => {
   const { user, logOutUser } = useContext(AuthContext);
-  const [userProfile, setuserProfile] = useState([]);
+  const [userProfile, setuserProfile] = useState({});
   const profileId = useParams();
-
-  console.log(userProfile);
 
   useEffect(() => {
     profile
@@ -21,6 +19,10 @@ const ProfilePage = () => {
       })
       .catch((err) => console.log(err));
   }, [profileId.id]);
+
+  if (!userProfile.userType) {
+    return <div>Loading...</div>
+  }
 
   // Mentor Profile Details
   if (userProfile.userType === "mentor") {
@@ -33,7 +35,7 @@ const ProfilePage = () => {
           </h2>
 
           {/* Avatar */}
-          <img src={userProfile.profileImg} alt={userProfile.username} />
+          <img src={userProfile.profileImg} alt={`avatar of the profile ${userProfile.username}`} />
 
           {/* Mentor or mentee */}
           <span>{userProfile.userType}</span>
@@ -58,11 +60,6 @@ const ProfilePage = () => {
             {userProfile.company}
           </p>
 
-          {/* Skills */}
-          {userProfile.skills.map((skill) => {
-            return <span key={skill._id}>{skill.name}</span>;
-          })}
-
           {/* About me */}
           <p className="mentor--profile__container--about">
             {userProfile.aboutMe}
@@ -86,7 +83,7 @@ const ProfilePage = () => {
           )}
 
           {/* Mentor's posted questions */}
-          {userProfile.questions?.map((question) => {
+          {userProfile.questions && userProfile.questions.map((question) => {
             return (
               <div key={question._id} className="mentor--profile__question">
                 <Link
@@ -141,14 +138,6 @@ const ProfilePage = () => {
             {userProfile.aboutMe}
           </p>
 
-          {/* Skills */}
-          <div className="mentee--profile__container--skills">
-            {userProfile.skills &&
-              userProfile.skills.map((skill, index) => (
-                <p key={index}>{skill}</p>
-              ))}
-          </div>
-
           {/* Mentee buttons */}
           {user._id === userProfile._id && (
             <div className="mentee--profile__btns">
@@ -167,7 +156,7 @@ const ProfilePage = () => {
           )}
 
           {/* Mentee posted Questions */}
-          {userProfile.questions?.map((question) => {
+          {userProfile.questions ?? userProfile.questions.map((question) => {
             return (
               <div key={question._id} className="mentee--profile__question">
                 <Link
@@ -189,4 +178,4 @@ const ProfilePage = () => {
   }
 };
 
-export default ProfilePage;
+export default Profile;

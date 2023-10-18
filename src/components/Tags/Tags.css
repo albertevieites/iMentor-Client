@@ -1,0 +1,36 @@
+.tags{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .7rem;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+.tags span {
+  background-color: var(--primary-color);
+  padding: 5px 15px;
+  border-radius: 20px;
+
+  font-size: .875rem;
+  color: var(--white-color);
+}
+
+.tags span.selected {
+  background-color: var(--secondary-color);
+  color: var(--white-color);
+}
+
+.tags button {
+  background-color: var(--white-color);
+  padding: 5px 15px;
+  border: solid 2px var(--primary-color);
+  border-radius: 5px;
+
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}

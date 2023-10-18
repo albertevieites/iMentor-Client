@@ -5,9 +5,8 @@ import { AuthContext } from "../../context/auth.context";
 import questions from "../../services/question.services";
 import uploadService from "../../services/upload.services"; */
 
-import AddForm from "../../components/AddForm/AddForm";
+import QuestionForm from "../../components/QuestionForm/QuestionForm";
 
-import "../../pages/Profile/Profile.css";
 import "./AddQuestion.css";
 
 const AddQuestion = () => {
@@ -62,7 +61,7 @@ const AddQuestion = () => {
   } */
   return (
     <div className="add--question">
-      <AddForm />
+      <QuestionForm />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import EditProfilePage from "../pages/EditProfile/EditProfile";
+import EditProfile from "../pages/EditProfile/EditProfile";
 import Feed from "../pages/Feed/Feed";
 import Home from "../pages/Home/Home";
 import LoginPage from "../pages/Login/Login";
@@ -52,7 +52,7 @@ const AppRoutes = () => {
       </Route>
 
       <Route path="/profile/edit" element={<PrivateRoute />}>
-        <Route path="" element={<EditProfilePage />} />
+        <Route path="" element={<EditProfile />} />
       </Route>
 
       <Route path="*" element={<h1>⚠️ error 404 ⚠️</h1>} />

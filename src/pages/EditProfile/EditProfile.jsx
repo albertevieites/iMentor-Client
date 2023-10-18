@@ -5,22 +5,16 @@ import { AuthContext } from "../../context/auth.context";
 import Profile from "../../services/profile.services";
 import uploadService from "../../services/upload.services";
 
-// import Skills from "../../components/Skills/Skills";
-import skillsArr from "../../utils/skillsArr";
-
 import "./EditProfile.css";
 
 // EDIT PROFILE COMPONENT
-const EditProfilePage = () => {
+const EditProfile = () => {
   const { user } = useContext(AuthContext);
 
   const [formState, setFormState] = useState();
   const [userType, setUserType] = useState();
   const [error, setError] = useState(null);
   const [image, setImage] = useState(false);
-
-  console.log(formState);
-  console.log(skillsArr);
 
   const navigate = useNavigate();
 
@@ -48,12 +42,12 @@ const EditProfilePage = () => {
 
     if (name === "skills") {
       const selectedSkills = Array.from(options)
-      .filter(option => option.selected)
-      .map(option => option.value);
-      setFormState(prevState => ({...prevState, [name]: selectedSkills }));
+        .filter((option) => option.selected)
+        .map((option) => option.value);
+      setFormState((prevState) => ({ ...prevState, [name]: selectedSkills }));
     } else {
       const { value } = event.currentTarget;
-      setFormState(prevState => ({...prevState, [name]: value }));
+      setFormState((prevState) => ({ ...prevState, [name]: value }));
     }
   };
 
@@ -70,24 +64,11 @@ const EditProfilePage = () => {
       .catch((err) => console.log(err));
   };
 
+  // Handle Mentee or Mentor Selection
   const handleType = () => {
-    if (userType === "mentor") {
-      setUserType("mentee");
-      setFormState({ ...formState, userType: "mentee" });
-      console.log(formState);
-    } else {
-      setUserType("mentor");
-      setFormState({ ...formState, userType: "mentor" });
-      console.log(formState);
-    }
-  };
-
-  const skillChange = (e) => {
-    const skillId = e.target.id;
-    const newForm = { ...formState };
-    if (!newForm.skills.includes(skillId)) newForm.skills.push(skillId);
-    else newForm.skills.splice(newForm.skills.indexOf(skillId), 1);
-    setFormState(newForm);
+    const newType = userType === "mentor" ? "mentee" : "mentor";
+    setUserType(newType);
+    setFormState((prevState) => ({ ...prevState, userType: newType }));
   };
 
   return (
@@ -106,44 +87,27 @@ const EditProfilePage = () => {
         />
 
         {/* Select course */}
-        <select id="course" name="course" onChange={handleInputChange}>
-          {!formState?.course && (
-            <option value="" selected>
-              Select a course
-            </option>
-          )}
-          {formState?.course === "Web Development" ? (
-            <option value="Web Development" selected>
-              Web Development
-            </option>
-          ) : (
-            <option value="Web Development">Web Development</option>
-          )}
-          {formState?.course === "UX/UI" ? (
-            <option value="UX/UI" selected>
-              UX/UI
-            </option>
-          ) : (
-            <option value="UX/UI">UX/UI</option>
-          )}
-          {formState?.course === "Data Analytics" ? (
-            <option value="Data Analytics" selected>
-              Data Analytics
-            </option>
-          ) : (
-            <option value="Data Analytics">Data Analytics</option>
-          )}
+        <select
+          id="course"
+          name="course"
+          value={formState?.course}
+          onChange={handleInputChange}
+        >
+          <option value="">Select a course</option>
+          <option value="Web Development">Web Development</option>
+          <option value="UX/UI">UX/UI</option>
+          <option value="Data Analytics">Data Analytics</option>
         </select>
 
         {/* Mentor or mentee selection */}
         <div className="edit--profile__role">
           <p>Mentee</p>
           <label className="edit--profile__switch">
-            {userType === "mentor" ? (
-              <input type="checkbox" checked onClick={handleType} />
-            ) : (
-              <input type="checkbox" onClick={handleType} />
-            )}
+            <input
+              type="checkbox"
+              checked={userType === "mentor"}
+              onChange={handleType}
+            />
             <span className="slider round"></span>
           </label>
           <p>Mentor</p>
@@ -152,7 +116,7 @@ const EditProfilePage = () => {
         {/* Name */}
         <input
           type="text"
-          id="name"
+          id="username"
           name="username"
           placeholder="Name"
           className="edit--profile__name"
@@ -175,11 +139,11 @@ const EditProfilePage = () => {
           <>
             <input
               placeholder="Current position"
-              className="edit--profile__ocuppation"
+              className="edit--profile__occupation"
               type="text"
-              id="name"
-              name="ocuppation"
-              value={formState?.ocuppation}
+              id="occupation"
+              name="occupation"
+              value={formState?.occupation}
               onChange={handleInputChange}
             />
 
@@ -187,12 +151,11 @@ const EditProfilePage = () => {
               placeholder="Company name"
               className="edit--profile__company"
               type="text"
-              id="name"
+              id="company"
               name="company"
               value={formState?.company}
               onChange={handleInputChange}
             />
-            {/* <Skills function={skillChange}></Skills> */}
           </>
         )}
 
@@ -201,26 +164,11 @@ const EditProfilePage = () => {
           placeholder="About Me"
           className="about"
           type="text"
-          id="name"
+          id="aboutMe"
           name="aboutMe"
           value={formState?.aboutMe}
           onChange={handleInputChange}
         />
-
-        {/* Skills */}
-        <label for="skills">Skills</label>
-        <select
-          name="skills"
-          value={formState?.skills}
-          onChange={handleInputChange}
-          multiple
-        >
-          {skillsArr.map((skill) => (
-            <option key={skill} value={skill}>
-              {skill}
-            </option>
-          ))}
-        </select>
 
         {/* Save button */}
         <button className="edit--profile__btn" type="submit" value="Post">
@@ -232,4 +180,4 @@ const EditProfilePage = () => {
     </div>
   );
 };
-export default EditProfilePage;
+export default EditProfile;

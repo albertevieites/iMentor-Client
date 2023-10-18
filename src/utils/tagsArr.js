@@ -1,4 +1,4 @@
-const skillsArr = [
+const tagsArr = [
   "React",
   "NodeJS",
   "Express",
@@ -35,4 +35,4 @@ const skillsArr = [
   "Communication skills",
 ];
 
-export default skillsArr;
+export default tagsArr;

@@ -11,7 +11,7 @@ const Navbar = () => {
   if (user)
     return (
       <nav>
-        <Link to="/mentors">
+        <Link to="/feed">
           <p>iMentor</p>
         </Link>
       </nav>
