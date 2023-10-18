@@ -1,50 +1,36 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import questions from "../../services/question.services";
-
-import "../../components/QuestionCard/QuestionCard.css";
+// Services
+import { getAllQuestions } from "../../services/question.services";
 
 import BubbleIcon from "../../assets/images/bubble.svg";
 
-/* import Skills from "../Skills/Skills";
+import "../../components/QuestionCard/QuestionCard.css";
 
-const skillList = []; */
 
-const QuestionCard = () => {
+const QuestionCard = ({ selectedTags }) => {
   const [questionList, setQuestionList] = useState([]);
-  const [filteredList, setfilteredList] = useState([]);
 
   useEffect(() => {
-    questions
-      .getAllQuestions()
+    getAllQuestions()
       .then((questions) => {
         const reversedQuestions = questions.data.reverse();
         setQuestionList(reversedQuestions);
-        setfilteredList(reversedQuestions);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [selectedTags]);
 
-  /*   function filterQuestions(e) {
-    if (!skillList.includes(e.target.id)) skillList.push(e.target.id);
-    else {
-      skillList.splice(skillList.indexOf(e.target.id), 1);
-    }
-
-    const newList = questionList.filter((mentor) =>
-      skillList.some((skill) => mentor.skills.includes(skill))
-    );
-    if (newList.length > 0) setfilteredList(newList);
-    else setfilteredList(questionList);
-
-    console.log(newList);
-  } */
+  const filteredQuestions =
+    selectedTags.length === 0
+      ? questionList
+      : questionList.filter((question) =>
+          selectedTags.some((tag) => question.tags.includes(tag))
+        );
 
   return (
     <div className="question--card">
-      {/* <Skills function={filterQuestions} filtering={skillList}></Skills> */}
-      {filteredList.map(({ _id, owner, title, description }) => {
+      {filteredQuestions.map(({ _id, owner, description, Comments }) => {
         return (
           <div key={_id} className="question--card__each">
             <div className="question--card__each--user">
@@ -59,7 +45,8 @@ const QuestionCard = () => {
             <div className="question--card__each--read">
               <div className="question--card__each--comments">
                 <img src={BubbleIcon} alt="bubble icon" />
-                <p>1K</p>
+                {/* Comments counter */}
+                <p>{Comments.length}</p>
               </div>
               <Link
                 to={`/questions/${_id}`}
