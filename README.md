@@ -1,10 +1,12 @@
-# iMentor: Find a mentor in the Ironhack community
+# iMentor
 
-## Description
+## Find a mentor in the Ironhack community
+
+### Description
 
 **iMentor** You started your journey as a developer at Ironhack. Do you need some advice? We give you the option to get in touch with some senior Ironhackers so you can find the best mentor to guide you through your new journey. With iMentor you will find the best mentor within the Ironhack community.
 
-## User Stories
+### User Stories
 
 - **404:** As an anon/ user, I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
 - **Signup:** As an anon I can sign up on the platform so that I can start playing into competition
@@ -14,16 +16,16 @@
 - **Edit Question** As a user, I can edit a question
 - **Edit Profile** As a user I can edit a user profile
 
-## Backlog
+### Backlog
 
 User profile:
 
 - see my profile
 - change role mode to mentor or mentee
 
-# Client / Frontend
+## Client / Frontend
 
-## React Router Routes (React App)
+### React Router Routes (React App)
 
 | Path                            | Component            | Permissions                 | Behavior                                                                     |
 | ------------------------------- | -------------------- | --------------------------- | ---------------------------------------------------------------------------- |
@@ -40,7 +42,7 @@ User profile:
 | `/profile/:id`                  | PlayersListPage      | user only `<PrivateRoute>`  | The details of the mentor/mentee                                             |
 | `/profile/:id/edit`             | TableView            | user only `<PrivateRoute>`  | Edit the details of the mentor/mentee                                        |
 
-## Components
+### Components
 
 - Footer
 - LoginForm
@@ -49,6 +51,6 @@ User profile:
 - QuestionCard
 - QuestionForm
 - SignupForm
-- Tags                                                                                                                  
+- Tags
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://imentor-client.up.railway.app)
