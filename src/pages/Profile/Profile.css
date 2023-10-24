@@ -20,7 +20,7 @@
 }
 
 /* Mentor Avatar */
-.mentor--profile img {
+.mentor--profile__container--image {
   width: 5rem;
   border-radius: 50%;
 }

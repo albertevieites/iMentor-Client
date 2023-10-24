@@ -35,7 +35,7 @@ const Profile = () => {
           </h2>
 
           {/* Avatar */}
-          <img src={userProfile.profileImg} alt={`avatar of the profile ${userProfile.username}`} />
+          <img className="mentor--profile__container--image" src={userProfile.profileImg} alt={`avatar of the profile ${userProfile.username}`} />
 
           {/* Mentor or mentee */}
           <span>{userProfile.userType}</span>
