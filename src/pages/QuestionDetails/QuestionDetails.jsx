@@ -20,6 +20,7 @@ const QuestionDetails = () => {
   const [question, setQuestion] = useState(null);
   const [newComment, setNewComment] = useState({ comment: "" });
   const [databaseUser, setdatabaseUser] = useState();
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -80,8 +81,8 @@ const QuestionDetails = () => {
   // Function to delete question from database
   const deleteThisQuestion = () => {
     deleteQuestion(question._id)
-      .then(()=>{
-        navigate("/feed")
+      .then(() => {
+        navigate("/feed");
       })
       .catch((error) => console.log(error));
   };
