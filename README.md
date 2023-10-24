@@ -6,28 +6,20 @@
 
 ## User Stories
 
-- **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
-- **Signup:** As an anon I can sign up in the platform so that I can start playing into competition
-- **Login:** As a user I can login to the platform so that I can play competitions
-- **Logout:** As a user I can logout from the platform so no one else can use it
-- **Add Tournaments** As a user I can add a tournament
-- **Edit Tournaments** As a user I can edit a tournament
-- **Add Player Names** As a user I can add players to a tournament
-- **Edit Player profiles** As a user I can edit a player profile to fit into the tournament view
-- **View Tournament Table** As a user I want to see the tournament table
-- **Edit Games** As a user I can edit the games, so I can add scores
-- **View Ranks** As a user I can see the ranks
+- **404:** As an anon/ user, I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
+- **Signup:** As an anon I can sign up on the platform so that I can start playing into competition
+- **Login:** As a user, I can login to the platform so that I can play competitions
+- **Logout:** As a user, I can logout from the platform so no one else can use it
+- **Add Questions** As a user I can add a question
+- **Edit Question** As a user, I can edit a question
+- **Edit Profile** As a user I can edit a user profile
 
 ## Backlog
 
 User profile:
 
 - see my profile
-- change tournament mode to FFA
-- Add weather widget
-- lottie interactions
-- users can bet
-- add geolocation to events when creating
+- change role mode to mentor or mentee
 
 # Client / Frontend
 
@@ -42,137 +34,21 @@ User profile:
 | `/questions`                    | TournamentListPage   | public `<Route>`            | List of questions and gives the option to filter based on the question topic |
 | `/questions/add`                | TournamentDetailPage | user only `<PrivateRoute>`  | Adds a question to the feed/list                                             |
 | `/questions/:id`                | n/a                  | public `<Route>`            | See the details of the specific question                                     |
-| `/questions/:id/delete`         | PlayersListPage      | owner only `<PrivateRoute>` | Delete the question(only the owner can do it)                                |
+| `/questions/:id/delete`         | PlayersListPage      | owner only `<PrivateRoute>` | Delete the question (only the owner can do it)                                |
 | `/questions/:id/comment/add`    | PlayersListPage      | user only `<PrivateRoute>`  | Add a comment to a specific question                                         |
 | `/questions/comment/:id/delete` | PlayersDetailPage    | user only `<PrivateRoute>`  | Delete the comment                                                           |
 | `/profile/:id`                  | PlayersListPage      | user only `<PrivateRoute>`  | The details of the mentor/mentee                                             |
 | `/profile/:id/edit`             | TableView            | user only `<PrivateRoute>`  | Edit the details of the mentor/mentee                                        |
-| `/messages`                     | RanksPage            | owner only `<PrivateRoute>` | See the list of messages                                                     |
-| `/messages`                     | GameDetailPage       | owner only `<PrivateRoute>` | See specific chat                                                            |
 
 ## Components
 
-- LoginPage
-
-- SplashPage
-
-- TournamentListPage
-
-- Tournament Cell
-
-- TournamentDetailPage
-
-- TableViewPage
-
-- PlayersListPage
-
-- PlayerDetailPage
-
-- RanksPage
-
-- TournamentDetailPageOutput
-
+- Footer
+- LoginForm
+- MentorCard
 - Navbar
-
-## Services
-
-- Auth Service
-  - auth.login(user)
-  - auth.signup(user)
-  - auth.logout()
-  - auth.me()
-  - auth.getUser() // synchronous
-- Tournament Service
-  - tournament.list()
-  - tournament.detail(id)
-  - tournament.add(id)
-  - tournament.delete(id)
-- Player Service
-
-  - player.detail(id)
-  - player.add(id)
-  - player.delete(id)
-
-- Game Service
-
-  - Game.put(id)
-
-# Server / Backend
-
-## Models
-
-User model
-
-```javascript
-{
-  username: {type: String, required: true, unique: true},
-  email: {type: String, required: true, unique: true},
-  password: {type: String, required: true},
-  favorites: [Tournament]
-}
-```
-
-Tournament model
-
-```javascript
- {
-   name: {type: String, required: true},
-   img: {type: String},
-   players: [{type: Schema.Types.ObjectId,ref:'Participant'}],
-   games: [{type: Schema.Types.ObjectId,ref:'Game'}]
- }
-```
-
-Player model
-
-```javascript
-{
-  name: {type: String, required: true},
-  img: {type: String},
-  score: []
-}
-```
-
-Game model
-
-```javascript
-{
-  player1: [{type: Schema.Types.ObjectId,ref:'Participant'}],
-  player2: [{type: Schema.Types.ObjectId,ref:'Player'}],
-  player2: [{type: Schema.Types.ObjectId,ref:'Player'}],
-  winner: {type: String},
-  img: {type: String}
-}
-```
-
-## API Endpoints (backend routes)
-
-| HTTP Method | URL                    | Request Body                 | Success status | Error Status | Description                                                                                                                     |
-| ----------- | ---------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| GET         | `/auth/profile    `    | Saved session                | 200            | 404          | Check if user is logged in and return profile page                                                                              |
-| POST        | `/auth/signup`         | {name, email, password}      | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
-| POST        | `/auth/login`          | {username, password}         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session              |
-| POST        | `/auth/logout`         | (empty)                      | 204            | 400          | Logs out the user                                                                                                               |
-| GET         | `/api/tournaments`     |                              |                | 400          | Show all tournaments                                                                                                            |
-| GET         | `/api/tournaments/:id` | {id}                         |                |              | Show specific tournament                                                                                                        |
-| POST        | `/api/tournaments`     | {}                           | 201            | 400          | Create and save a new tournament                                                                                                |
-| PUT         | `/api/tournaments/:id` | {name,img,players}           | 200            | 400          | edit tournament                                                                                                                 |
-| DELETE      | `/api/tournaments/:id` | {id}                         | 201            | 400          | delete tournament                                                                                                               |
-| GET         | `/api/players`         |                              |                | 400          | show players                                                                                                                    |
-| GET         | `/api/players/:id`     | {id}                         |                |              | show specific player                                                                                                            |
-| POST        | `/api/players`         | {name,img,tournamentId}      | 200            | 404          | add player                                                                                                                      |
-| PUT         | `/api/players/:id`     | {name,img}                   | 201            | 400          | edit player                                                                                                                     |
-| DELETE      | `/api/players/:id`     | {id}                         | 200            | 400          | delete player                                                                                                                   |
-| GET         | `/api/games`           | {}                           | 201            | 400          | show games                                                                                                                      |
-| GET         | `/api/games/:id`       | {id,tournamentId}            |                |              | show specific game                                                                                                              |
-| POST        | `/api/games`           | {player1,player2,winner,img} |                |              | add game                                                                                                                        |
-| PUT         | `/api/games/:id`       | {winner,score}               |                |              | edit game                                                                                                                       |
-
-### Repositories
-
-[Client repository Link](https://github.com/albertevieites/iMentor-Client)
-
-[Server repository Link](https://github.com/albertevieites/iMentor-Server)
-
+- QuestionCard
+- QuestionForm
+- SignupForm
+- Tags                                                                                                                  
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://imentor-client.up.railway.app)
