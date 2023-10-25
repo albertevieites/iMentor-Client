@@ -18,18 +18,13 @@ const Feed = () => {
     }
   };
 
-  // Handle deleted questions
-  const handleQuestionDeleted = () => {
-    setQuestionDeleted((prevState) => !prevState);
-  };
-
   return (
     <div className="feed">
       <Tags onTagSelect={handleTagSelection} selectedTags={selectedTags} />
       <QuestionCard selectedTags={selectedTags} reloadQuestions={questionDeleted} />
       <div className="feed__link--container">
         <Link to={`/addquestion`} className="feed__btn">
-          Add a post
+          Add Question
         </Link>
       </div>
     </div>

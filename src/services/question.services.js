@@ -21,7 +21,7 @@ api.interceptors.request.use((config) => {
   export const createQuestion = (question) => api.post("/questions", question);
 
   export const editQuestion = (question, id) =>
-    api.post(`/questions/${id}/edit`, question);
+    api.patch(`/questions/${id}/edit`, question);
 
   export const deleteQuestion = (id) => api.post(`/questions/${id}/delete`);
 
