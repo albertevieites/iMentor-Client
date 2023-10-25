@@ -12,7 +12,6 @@
     "css-minimizer-webpack-plugin": "^5.0.1",
     "loader-utils": "^3.2.1",
     "minimatch": "^9.0.3",
-    "npm": "^10.2.1",
     "nth-check": "^2.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -24,11 +23,7 @@
     "web-vitals": "^3.5.0"
   },
   "devDependencies": {
-    "nth-check": "^2.1.1",
     "terser": "^5.22.0"
-  },
-  "optionalDependencies": {
-    "typescript": "^3.9.10"
   },
   "eslintConfig": {
     "extends": [
