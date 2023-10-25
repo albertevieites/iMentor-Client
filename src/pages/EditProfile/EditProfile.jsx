@@ -14,7 +14,7 @@ const EditProfile = () => {
   const [formState, setFormState] = useState();
   const [userType, setUserType] = useState();
   const [error, setError] = useState(null);
-  const [image, setImage] = useState(false);
+  const [, setImage] = useState(false);
 
   const navigate = useNavigate();
 

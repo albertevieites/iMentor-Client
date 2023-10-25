@@ -44,7 +44,7 @@ const Loginform = () => {
   useEffect(() => {
     if (user && user.course) navigate("/mentors");
     else if (user && !user.course) navigate(`/profile/${user._id}`);
-  }, [user]);
+  }, [user, navigate]);
 
   const handleInputChange = (e) => {
     const { value, name } = e.currentTarget;

@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
 // Services
-import { createQuestion } from "../../services/question.services";
+import { createQuestion, editQuestion } from "../../services/question.services";
 import uploadService from "../../services/upload.services";
 
 // Data
@@ -13,7 +13,6 @@ import tagsArr from "../../utils/tagsArr";
 import "./QuestionForm.css";
 
 function QuestionForm() {
-  console.log(tagsArr);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -30,9 +29,11 @@ function QuestionForm() {
 
   const [formState, setFormState] = useState(startingFormState);
   const [error, setError] = useState();
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     if (location.state?.data) {
+      setIsEditing(true);
       setFormState((prevState) => ({
         ...prevState,
         ...location.state.data,
@@ -41,18 +42,31 @@ function QuestionForm() {
     }
   }, [location.state, user]);
 
+  // Handling adding or editing submit form
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Form state before submit: ", formState);
     if (formState.title && formState.description) {
-      createQuestion(formState)
-        .then((data) => {
-          console.log("API Response on Submit: ", data);
-          navigate(`/questions/${data?.data._id}`);
-        })
-        .catch((error) => {
-          console.log("API Error on Submit: ", error);
-        });
+      if (location.state?.data) {
+        // Edition mode
+        editQuestion(formState, location.state.data._id)
+          .then((data) => {
+            console.log("API Response on Edit: ", data);
+            navigate(`/questions/${data?.data._id}`);
+          })
+          .catch((error) => {
+            console.log("API Error on Edit", error);
+          });
+      } else {
+        createQuestion(formState)
+          .then((data) => {
+            console.log("API Response on Submit: ", data);
+            navigate(`/questions/${data?.data._id}`);
+          })
+          .catch((error) => {
+            console.log("API Error on Submit: ", error);
+          });
+      }
     } else {
       setError("Please fill out the empty fields");
     }
@@ -75,10 +89,6 @@ function QuestionForm() {
         setFormState({ ...formState, imageUrl: data.cloudinary_url });
       })
       .catch((err) => console.log(err));
-    /*
-        uploadData.append("upload_preset","fzk9q9ld")
-        uploadService.uploadImage(uploadData)
-        .then(fileUrl => setImage(fileUrl))*/
   }
 
   const handleTagChange = (event) => {
@@ -94,16 +104,6 @@ function QuestionForm() {
       tags: newTags,
     }));
   };
-
-  /* function skillChange(e) {
-    const skillId = e.target.id;
-    setFormState((prevForm) => {
-      const newSkills = prevForm.skills.includes(skillId)
-        ? prevForm.skills.filter((s) => s !== skillId)
-        : [...prevForm.skills, skillId];
-      return { ...prevForm, skills: newSkills };
-    });
-  } */
 
   return (
     <div className="add--form">
@@ -183,7 +183,7 @@ function QuestionForm() {
 
         {/* Post Question Button */}
         <button className="add--form__btn" type="submit" value="Post">
-          Post Question
+          {isEditing ? "Edit Question" : "Publish Question"}
         </button>
       </form>
       {error && <p>{error}</p>}
