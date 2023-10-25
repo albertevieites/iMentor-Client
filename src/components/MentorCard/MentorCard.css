@@ -21,23 +21,17 @@
   border: 0.2rem solid var(--white-color);
 }
 
-.mentor--card__content {
-  font-size: 0.938rem;
+.mentor--card__content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  padding-bottom: 0.3rem;
 }
 
-.mentor--card__content {
-  & h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
+.mentor--card__content p {
+  font-size: 0.94rem;
 
-    padding-bottom: .3rem;
-  }
-
-  & p {
-    font-size: 0.94rem;
-
-    padding-bottom: 1.5rem;
-  }
+  padding-bottom: 1.5rem;
 }
 
 .mentor--card__btns {
@@ -51,7 +45,7 @@
   border: 0.125rem solid var(--primary-color);
   border-radius: 0.32rem;
   background-color: var(--primary-color);
-  
+
   font-size: 1rem;
   color: var(--white-color);
 }
