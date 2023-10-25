@@ -7,7 +7,7 @@ const NotLoggedInRoute = () => {
   const { isLoggedIn } = useContext(AuthContext);
 
   if (isLoggedIn) {
-    return <Navigate to="/mentors" />;
+    return <Navigate to="/feed" />;
   }
 
   return <Outlet />;
