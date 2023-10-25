@@ -107,9 +107,6 @@ function QuestionForm() {
 
   return (
     <div className="add--form">
-      {/* Page title */}
-      <h1 className="ask">Ask Questions</h1>
-
       {/* FORM */}
       <form onSubmit={handleSubmit}>
         <label htmlFor="title"></label>
