@@ -10,8 +10,8 @@
 
 - **404:** As an anon/ user, I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
 - **Signup:** As an anon I can sign up on the platform so that I can start playing into competition
-- **Login:** As a user, I can login to the platform so that I can play competitions
-- **Logout:** As a user, I can logout from the platform so no one else can use it
+- **Login:** As a user, I can log in to the platform so that I can play competitions
+- **Logout:** As a user, I can log out from the platform so no one else can use it
 - **Add Questions** As a user I can add a question
 - **Edit Question** As a user, I can edit a question
 - **Edit Profile** As a user I can edit a user profile
@@ -22,6 +22,7 @@ User profile:
 
 - see my profile
 - change role mode to mentor or mentee
+- edit my profile
 
 ## Client / Frontend
 
@@ -29,16 +30,14 @@ User profile:
 
 | Path                            | Component            | Permissions                 | Behavior                                                                     |
 | ------------------------------- | -------------------- | --------------------------- | ---------------------------------------------------------------------------- |
-| `/`                             | SplashPage           | public `<Route>`            | Home page                                                                    |
+| `/`                             | Home                 | public `<Route>`            | Home page                                                                    |
 | `/signup`                       | SignupPage           | anon only `<AnonRoute>`     | Signup form, link to login, navigate to homepage after signup                |
 | `/login`                        | LoginPage            | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login                 |
-| `/mentors`                      | TournamentListPage   | user only `<PrivateRoute>`  | Shows a list of mentors       |
-| `/questions`                    | TournamentListPage   | public `<Route>`            | List of questions and gives the option to filter based on the question topic |
-| `/questions/add`                | TournamentDetailPage | user only `<PrivateRoute>`  | Adds a question to the feed/list                                             |
-| `/questions/:id`                | n/a                  | public `<Route>`            | See the details of the specific question                                     |
-| `/questions/:id/delete`         | PlayersListPage      | owner only `<PrivateRoute>` | Delete the question (only the owner can do it)                                |
-| `/questions/:id/comment/add`    | PlayersListPage      | user only `<PrivateRoute>`  | Add a comment to a specific question                                         |
-| `/questions/comment/:id/delete` | PlayersDetailPage    | user only `<PrivateRoute>`  | Delete the comment                                                           |
+| `/feed`                         | Feed                 | user only `<PrivateRoute>`  | Show published questions by all users and gives the option to filter them |
+| `/mentors`                      | Mentors   | user only `<PrivateRoute>`  | Shows a list of mentors       |
+| `/questions/add`                | AddQuestion | user only `<PrivateRoute>`  | Adds a question to the feed                                            |
+| `/questions/:id`                | QuestionDetails                  | user only `<PrivateRoute>`            | See the details of the specific question and add comments               |
+| `/questions/:id/edit`         | QuestionForm      | owner only `<PrivateRoute>` | Edit the question (only the owner can do it)                                |        
 | `/profile/:id`                  | PlayersListPage      | user only `<PrivateRoute>`  | The details of the mentor/mentee                                             |
 | `/profile/:id/edit`             | TableView            | user only `<PrivateRoute>`  | Edit the details of the mentor/mentee                                        |
 
