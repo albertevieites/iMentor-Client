@@ -20,15 +20,6 @@ class Mentor {
   getAllMentors = () => {
     return this.app.get("/mentors");
   };
-
-  filterMentors = (skillsId, mentors) => {
-    const filteredMentors = mentors.filter((mentor) => {
-      return skillsId.some((skillId) => {
-        return mentor.skills.includes(skillId);
-      });
-    });
-    return filteredMentors;
-  };
 }
 
 const mentors = new Mentor();

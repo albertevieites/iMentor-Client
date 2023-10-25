@@ -183,7 +183,7 @@ function QuestionForm() {
 
         {/* Post Question Button */}
         <button className="add--form__btn" type="submit" value="Post">
-          {isEditing ? "Edit Question" : "Publish Question"}
+          {isEditing ? "Update Question" : "Publish Question"}
         </button>
       </form>
       {error && <p>{error}</p>}

@@ -32,7 +32,7 @@ User profile:
 | `/`                             | SplashPage           | public `<Route>`            | Home page                                                                    |
 | `/signup`                       | SignupPage           | anon only `<AnonRoute>`     | Signup form, link to login, navigate to homepage after signup                |
 | `/login`                        | LoginPage            | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login                 |
-| `/mentors`                      | TournamentListPage   | user only `<PrivateRoute>`  | Shows a list of mentors and gives the option to filter based on skills       |
+| `/mentors`                      | TournamentListPage   | user only `<PrivateRoute>`  | Shows a list of mentors       |
 | `/questions`                    | TournamentListPage   | public `<Route>`            | List of questions and gives the option to filter based on the question topic |
 | `/questions/add`                | TournamentDetailPage | user only `<PrivateRoute>`  | Adds a question to the feed/list                                             |
 | `/questions/:id`                | n/a                  | public `<Route>`            | See the details of the specific question                                     |

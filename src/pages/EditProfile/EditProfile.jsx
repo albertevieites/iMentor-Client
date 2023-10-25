@@ -38,17 +38,10 @@ const EditProfile = () => {
   };
 
   const handleInputChange = (event) => {
-    const { name, options } = event.currentTarget;
+    const { name } = event.currentTarget;
 
-    if (name === "skills") {
-      const selectedSkills = Array.from(options)
-        .filter((option) => option.selected)
-        .map((option) => option.value);
-      setFormState((prevState) => ({ ...prevState, [name]: selectedSkills }));
-    } else {
-      const { value } = event.currentTarget;
-      setFormState((prevState) => ({ ...prevState, [name]: value }));
-    }
+    const { value } = event.currentTarget;
+    setFormState((prevState) => ({ ...prevState, [name]: value }));
   };
 
   const handleFileUpload = (event) => {

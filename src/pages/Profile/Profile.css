@@ -205,23 +205,6 @@ code {
   padding-bottom: .7rem;
 }
 
-/* Skills */
-.mentee--profile__container--skills {
-  display: flex;
-  gap: .7rem;
-  flex-wrap: wrap;
-}
-
-.mentee--profile__container--skills p {
-  font-size: 1rem;
-  color: var(--primary-color);
-
-  width: fit-content;
-  padding: .3rem 1rem;
-  border-radius: 1rem;
-  border: 1px solid var(--primary-color);
-}
-
 /* Mentee Buttons */
 .mentee--profile__btns {
   display: flex;
