@@ -3,7 +3,7 @@ import axios from "axios";
 class Profile {
   constructor() {
     this.app = axios.create({
-      baseURL: `${process.env.REACT_APP_API_URL}`,
+      baseURL: `${import.meta.env.VITE_API_URL}`,
     });
 
     this.app.interceptors.request.use((config) => {
