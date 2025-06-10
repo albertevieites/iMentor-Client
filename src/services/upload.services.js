@@ -3,7 +3,7 @@ import axios from "axios";
 class UploadService {
   constructor() {
     this.app = axios.create({
-      baseURL: `${process.env.REACT_APP_API_URL}/upload`,
+      baseURL: `${import.meta.env.VITE_API_URL}/upload`,
     });
 
     this.app.interceptors.request.use((config) => {
