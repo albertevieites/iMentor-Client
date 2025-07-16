@@ -4,6 +4,14 @@
 
 ## Connect with senior mentors from the Ironhack community
 
+---
+
+**Looking for the backend?**  
+The server-side code for iMentor lives here:  
+👉 [iMentor-Server (Backend Repo)](https://github.com/albertevieites/iMentor-Server)
+
+---
+
 [![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://imentor-client.up.railway.app)
 [![React](https://img.shields.io/badge/React-19.1-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.3-purple?style=for-the-badge&logo=vite)](https://vitejs.dev/)
