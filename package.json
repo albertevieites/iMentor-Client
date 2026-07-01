@@ -1,6 +1,6 @@
 {
   "name": "imentor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "engines": {
@@ -21,12 +21,13 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.2",
-    "eslint": "^9.7.0",
+    "eslint": "^9.39.4",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "postcss": "^8.5.15",
-    "vite": "^8.0.16"
+    "vite": "^8.0.16",
+    "form-data": "4.0.6"
   },
   "browserslist": {
     "production": [
