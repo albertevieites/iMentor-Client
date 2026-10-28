@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import { AuthContext } from "../../context/auth.context";
@@ -27,20 +27,15 @@ function QuestionForm() {
     tags: [],
   };
 
-  const [formState, setFormState] = useState(startingFormState);
-  const [error, setError] = useState();
-  const [isEditing, setIsEditing] = useState(false);
+  // Edition mode when navigating with question data in location state
+  const isEditing = Boolean(location.state?.data);
 
-  useEffect(() => {
-    if (location.state?.data) {
-      setIsEditing(true);
-      setFormState((prevState) => ({
-        ...prevState,
-        ...location.state.data,
-        owner: { user },
-      }));
-    }
-  }, [location.state, user]);
+  const [formState, setFormState] = useState(() =>
+    isEditing
+      ? { ...startingFormState, ...location.state.data, owner: { user } }
+      : startingFormState
+  );
+  const [error, setError] = useState();
 
   // Handling adding or editing submit form
   const handleSubmit = (event) => {
@@ -164,8 +159,9 @@ function QuestionForm() {
         )}
 
         {/* Tags */}
-        <label for="tags">Tags</label>
+        <label htmlFor="tags">Tags</label>
         <select
+          id="tags"
           name="tags"
           value={formState?.tags}
           onChange={handleTagChange}

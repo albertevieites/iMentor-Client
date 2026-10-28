@@ -8,7 +8,6 @@ import "./Feed.css";
 
 const Feed = () => {
   const [selectedTags, setSelectedTags] = useState([]);
-  const [questionDeleted, setQuestionDeleted] = useState(false);
 
   const handleTagSelection = (tag) => {
     if (selectedTags.includes(tag)) {
@@ -21,7 +20,7 @@ const Feed = () => {
   return (
     <div className="feed">
       <Tags onTagSelect={handleTagSelection} selectedTags={selectedTags} />
-      <QuestionCard selectedTags={selectedTags} reloadQuestions={questionDeleted} />
+      <QuestionCard selectedTags={selectedTags} />
       <div className="feed__link--container">
         <Link to={`/addquestion`} className="feed__btn">
           Add Question
